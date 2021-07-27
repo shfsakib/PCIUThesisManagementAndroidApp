@@ -369,7 +369,7 @@ namespace PCIUTMSApp
             HttpCookie cookies = GetCookie();
             if (cookies == null)
             {
-                HttpContext.Current.Response.Redirect("/Web/Login.aspx", true);
+                HttpContext.Current.Response.Redirect("log-in.aspx", true);
             }
         }
 
@@ -387,7 +387,7 @@ namespace PCIUTMSApp
             HttpCookie cookies = GetCookie();
             cookies.Expires = DateTime.Now.AddDays(-1);
             HttpContext.Current.Response.Cookies.Add(cookies);
-            HttpContext.Current.Response.Redirect("/Web/Login.aspx");
+            HttpContext.Current.Response.Redirect("log-in.aspx");
         }
         public string UserIdCookie()
         {
@@ -425,7 +425,7 @@ namespace PCIUTMSApp
             HttpCookie cookies = GetCookie();
             if (cookies["Type"] != type)
             {
-                HttpContext.Current.Response.Redirect("/Web/Login.aspx");
+                HttpContext.Current.Response.Redirect("log-in.aspx");
             }
 
         }
@@ -433,7 +433,7 @@ namespace PCIUTMSApp
         public static HttpCookie CreateCookie()
         {
             HttpCookie cookie = new HttpCookie("Thesis");
-            if (cookie == null || cookie?.Value == "")
+            if (cookie== null || cookie?.Value == "")
             {
                 cookie = null;
             }
@@ -460,7 +460,7 @@ namespace PCIUTMSApp
             }
             else
             {
-                HttpContext.Current.Response.Redirect("/Web/Login.aspx");
+                HttpContext.Current.Response.Redirect("log-in.aspx");
             }
         }
 
