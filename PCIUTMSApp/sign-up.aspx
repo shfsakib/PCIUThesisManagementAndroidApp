@@ -99,7 +99,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <label class="label">Department</label>
-                                            <asp:DropDownList ID="ddlStudentDepartment" class="form-control w-100" runat="server">
+                                            <asp:DropDownList ID="ddlStudentDepartment" class="form-control w-100 select2" runat="server">
                                                 <asp:ListItem>Select</asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
@@ -124,8 +124,8 @@
                                 </asp:Panel>
                                 <div class="row">
                                     <div class="col-12">
-                                        <label class="label">Upload Picture.</label>
-                                        <asp:FileUpload ID="filePic" accept="image/*" runat="server" onchange="ImagePreview(this)" />
+                                        <label class="label">Upload Picture</label>
+                                        <asp:FileUpload ID="filePic" accept="image/*" runat="server" CssClass="form-control" onchange="ImagePreview(this)" />
                                     </div>
                                     <div class="col-12">
                                         <label class="label"></label>

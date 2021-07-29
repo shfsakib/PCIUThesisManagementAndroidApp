@@ -138,7 +138,7 @@ namespace PCIUTMSApp
                         func.PopAlert(this, "Student id is required");
                     }
                     a = func.Execute(
-                        $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink) VALUES('{ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{ddlType.SelectedItem.ToString()}','{pic}','{ddlStudentDepartment.SelectedValue}','','','','','{txtPass.Text}','W','{func.Date()}','')");
+                        $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink) VALUES('{ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{ddlType.SelectedItem.ToString()}','{pic}','{ddlStudentDepartment.SelectedValue}','','','','{txtStdntId.Text}','{txtPass.Text}','W','{func.Date()}','')");
                     if (a)
                     {
                         func.AlertWithRedirect(this, "Registered successfully, Please wait for account approval by admin", "/log-in.aspx");

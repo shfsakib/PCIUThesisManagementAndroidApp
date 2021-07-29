@@ -94,8 +94,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\coordinator-list.aspx" />
     <Content Include="app\department-list.aspx" />
     <Content Include="app\home.aspx" />
+    <Content Include="app\student-list.aspx" />
+    <Content Include="app\teacher-list.aspx" />
     <Content Include="app\update-department.aspx" />
     <Content Include="Link\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
     <Content Include="Link\bower_components\bootstrap-colorpicker\dist\js\bootstrap-colorpicker.min.js" />
@@ -328,12 +331,33 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="app\coordinator-list.aspx.cs">
+      <DependentUpon>coordinator-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\coordinator-list.aspx.designer.cs">
+      <DependentUpon>coordinator-list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="app\department-list.aspx.cs">
       <DependentUpon>department-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="app\department-list.aspx.designer.cs">
       <DependentUpon>department-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\student-list.aspx.cs">
+      <DependentUpon>student-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\student-list.aspx.designer.cs">
+      <DependentUpon>student-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\teacher-list.aspx.cs">
+      <DependentUpon>teacher-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\teacher-list.aspx.designer.cs">
+      <DependentUpon>teacher-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="app\update-department.aspx.cs">
       <DependentUpon>update-department.aspx</DependentUpon>

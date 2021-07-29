@@ -34,7 +34,6 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="/Link/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" />
     <!-- Google Font -->
-    <link href="/Link/select2.css" rel="stylesheet" />
     <link href="Link/font-awesome.css" rel="stylesheet" />
     <script src="Link/font-awesome.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" />
@@ -388,14 +387,14 @@
     <script src="/Link/dist/js/pages/dashboard.js"></script>
     <%-- Auto complete --%>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.js" integrity="sha512-TToQDr91fBeG4RE5RjMl/tqNAo35hSRR4cbIFasiV2AAMQ6yKXXYhdSdEpUcRE6bqsTiB+FPLPls4ZAFMoK5WA==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.css" integrity="sha512-TfnGOYsHIBHwx3Yg6u6jCWhqz79osu5accjEmw8KYID9zfWChaGyjDCmJIdy9fJjpvl9zXxZamkLam0kc5p/YQ==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <!-- AdminLTE for demo purposes -->
+      <!-- AdminLTE for demo purposes -->
     <script src="/Link/dist/js/demo.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="/Link/select2.css" rel="stylesheet" />
+
     <%--<link href="/Link/Date-Picker.css" rel="stylesheet" />--%>
     <script>
         $(document).ready(function () {
@@ -409,6 +408,9 @@
             window.onpopstate = function () {
                 window.history.pushState(null, "", window.location.href);
             };
+            $('.select2').select2({
+                closeOnSelect: false
+            });
         });
         function pageLoad() {
             $("#ContentPlaceHolder1_txtDob").datepicker({
@@ -416,6 +418,9 @@
                 changeYear: true,
                 dateFormat: 'dd/mm/yy',
                 yearRange: '1901:2099'
+            });
+            $('.select2').select2({
+                closeOnSelect: false
             });
         };
         $(document).ready(function () {
@@ -436,10 +441,6 @@
         };
     </script>
     <%--select 2--%>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-
-
     <script type="text/javascript">
         $(function () {
             $('.select2').select2({
