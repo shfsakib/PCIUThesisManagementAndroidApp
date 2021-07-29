@@ -23,7 +23,7 @@
             </div>
             <div class="col-lg-4"></div>
         </div>
-        <div class="row pt-3">
+        <div class="row card card-body" style="padding-top: 15px;">
             <div class="col-lg-2"></div>
             <div class="col-lg-8 justify-content-center table-responsive">
                 <asp:GridView ID="gridDepartment" Width="100%" class="table table-hover table-bordered table-striped" OnPageIndexChanging="gridDepartment_OnPageIndexChanging" AutoGenerateColumns="False" ShowHeader="True" ShowHeaderWhenEmpty="True" EmptyDataText="No Department Found" AllowPaging="True" PageSize="30" runat="server">

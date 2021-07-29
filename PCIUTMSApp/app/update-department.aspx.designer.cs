@@ -10,42 +10,33 @@
 namespace PCIUTMSApp.app {
     
     
-    public partial class home {
+    public partial class update_department {
         
         /// <summary>
-        /// lblReport control.
+        /// txtDepartmentName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReport;
+        protected global::System.Web.UI.WebControls.TextBox txtDepartmentName;
         
         /// <summary>
-        /// lblStudent control.
+        /// lblMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStudent;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// lblTeacher control.
+        /// btnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTeacher;
-        
-        /// <summary>
-        /// lblApplication control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblApplication;
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
     }
 }

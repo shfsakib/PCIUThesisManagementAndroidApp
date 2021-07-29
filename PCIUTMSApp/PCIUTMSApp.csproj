@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="app\department-list.aspx" />
     <Content Include="app\home.aspx" />
+    <Content Include="app\update-department.aspx" />
     <Content Include="Link\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
     <Content Include="Link\bower_components\bootstrap-colorpicker\dist\js\bootstrap-colorpicker.min.js" />
     <Content Include="Link\bower_components\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
@@ -164,7 +165,6 @@
     <Content Include="Link\dummy.png" />
     <Content Include="Link\font-awesome.css" />
     <Content Include="Link\font-awesome.js" />
-    <Content Include="Link\garage.png" />
     <Content Include="Link\log-in\dist\css\adminlte.min.css" />
     <Content Include="Link\log-in\dist\js\adminlte.min.js" />
     <Content Include="Link\log-in\plugins\bootstrap\js\bootstrap.bundle.min.js" />
@@ -293,6 +293,7 @@
     <Content Include="Link\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Link\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Link\select2.css" />
+    <Content Include="Link\tpms.png" />
     <Content Include="Link\user.png" />
     <Content Include="log-in.aspx" />
     <Content Include="packages.config" />
@@ -334,6 +335,13 @@
     <Compile Include="app\department-list.aspx.designer.cs">
       <DependentUpon>department-list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="app\update-department.aspx.cs">
+      <DependentUpon>update-department.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\update-department.aspx.designer.cs">
+      <DependentUpon>update-department.aspx</DependentUpon>
+    </Compile>
     <Compile Include="root.Master.cs">
       <DependentUpon>root.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -365,7 +373,9 @@
       <DependentUpon>sign-up.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="photos\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

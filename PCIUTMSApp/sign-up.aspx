@@ -8,7 +8,7 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/Link/garage.png" type="image/gif" sizes="16x16" />
+    <link rel="icon" href="/Link/tpms.png" type="image/gif" sizes="16x16" />
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback" />
     <!-- Font Awesome -->
@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="col-12">
                                             <label class="label">Designation</label>
-                                            <asp:TextBox ID="txtDesignation" runat="server" autocomplete="off" class="form-control w-100" placeholder="BSc.,MSc.,PhD."></asp:TextBox>
+                                            <asp:TextBox ID="txtDesignation" runat="server" autocomplete="off" class="form-control w-100" placeholder="Lecturer, Sr. Lecturer"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -117,7 +117,7 @@
                                         </div>
                                         <div class="col-12">
                                             <label class="label">Designation</label>
-                                            <asp:TextBox ID="txtCoDesignation" runat="server" autocomplete="off" class="form-control w-100" placeholder="BSc.,MSc.,PhD. etc"></asp:TextBox>
+                                            <asp:TextBox ID="txtCoDesignation" runat="server" autocomplete="off" class="form-control w-100" placeholder="Lecturer, Sr. Lecturer, Chairman"></asp:TextBox>
 
                                         </div>
                                     </div>
@@ -139,12 +139,7 @@
                                 <div class="p-t-15">
                                     <button id="btnSave" class="btn btn-primary mt-2" runat="server" onserverclick="btnSave_OnServerClick" type="submit">Sign up</button>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <br />
-                                        <span>Back to <a href="log-in.aspx">Login</a></span>
-                                    </div>
-                                </div>
+                                 
                             </div>
                         </div>
                     </div>
