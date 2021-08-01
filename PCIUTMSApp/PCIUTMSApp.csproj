@@ -97,6 +97,7 @@
     <Content Include="app\coordinator-list.aspx" />
     <Content Include="app\department-list.aspx" />
     <Content Include="app\home.aspx" />
+    <Content Include="app\send-application.aspx" />
     <Content Include="app\student-list.aspx" />
     <Content Include="app\teacher-list.aspx" />
     <Content Include="app\update-department.aspx" />
@@ -166,6 +167,8 @@
     <Content Include="Link\dist\js\pages\dashboard.js" />
     <Content Include="Link\dist\js\pages\dashboard2.js" />
     <Content Include="Link\dummy.png" />
+    <Content Include="Link\editor.css" />
+    <Content Include="Link\editor.js" />
     <Content Include="Link\font-awesome.css" />
     <Content Include="Link\font-awesome.js" />
     <Content Include="Link\log-in\dist\css\adminlte.min.css" />
@@ -344,6 +347,13 @@
     </Compile>
     <Compile Include="app\department-list.aspx.designer.cs">
       <DependentUpon>department-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\send-application.aspx.cs">
+      <DependentUpon>send-application.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\send-application.aspx.designer.cs">
+      <DependentUpon>send-application.aspx</DependentUpon>
     </Compile>
     <Compile Include="app\student-list.aspx.cs">
       <DependentUpon>student-list.aspx</DependentUpon>
