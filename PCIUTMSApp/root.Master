@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="root.Master.cs" Inherits="PCIUTMSApp.root" %>
 
+<%@ Import Namespace="PCIUTMSApp" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -62,10 +64,10 @@
                         <span class="sr-only">Toggle navigation</span>
                     </a>
                     <div class="navbar-custom-menu">
-                        <%--<%HttpCookie cookie = HttpContext.Current.Request.Cookies["GarageInfo"]; %>
+                        <% HttpCookie cookie = Function.GetCookie(); %>
                         <% if (cookie == null)
                             {
-                        %>--%>
+                        %>
                         <ul class="nav navbar-nav">
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
@@ -78,11 +80,11 @@
                             </li>
 
                         </ul>
-                        <%-- <%
+                        <%
                             }
                             else
-                            { %>--%>
-                        <%--<ul class="nav navbar-nav">
+                            { %>
+                        <ul class="nav navbar-nav">
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -101,7 +103,7 @@
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="/user/own-profile.aspx?id" class="btn btn-default btn-flat">Profile</a>
+                                            <a href="/app/own-profile.aspx?id" class="btn btn-default btn-flat">Profile</a>
                                         </div>
                                         <div class="pull-right">
                                             <asp:LinkButton ID="lnkLogOut" class="btn btn-default btn-flat" OnClick="lnkLogOut_OnClick" runat="server">Sign out</asp:LinkButton>
@@ -112,7 +114,7 @@
                             <!-- Control Sidebar Toggle Button -->
                             <li></li>
                         </ul>
-                        <% } %>--%>
+                        <% } %>
                     </div>
                 </nav>
             </header>
@@ -327,6 +329,14 @@
         td {
             font-size: 18px !important;
         }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #000;
+        }
     </style>
     <%--<style>
         .ui-menu-item {
@@ -387,7 +397,7 @@
     <script src="/Link/dist/js/pages/dashboard.js"></script>
     <%-- Auto complete --%>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <!-- AdminLTE for demo purposes -->
+    <!-- AdminLTE for demo purposes -->
     <script src="/Link/dist/js/demo.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

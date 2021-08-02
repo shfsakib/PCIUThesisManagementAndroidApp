@@ -19,6 +19,7 @@ namespace PCIUTMSApp.app
         {
             if (!IsPostBack)
             {
+                func.CheckCookies();
                 lblStudent.Text = func.IsExist("SELECT COUNT(Name) FROM Registration WHERE Type='Student'");
                 lblTeacher.Text = func.IsExist("SELECT COUNT(Name) FROM Registration WHERE Type='Teacher'");
                 Load();

@@ -92,6 +92,7 @@
                                             <label class="label">Id No.</label>
                                             <asp:TextBox ID="txtTeacherId" runat="server" autocomplete="off" class="form-control w-100" placeholder="XXX XXX XXX"></asp:TextBox>
                                         </div>
+                                        
                                     </div>
 
                                 </asp:Panel>
@@ -106,6 +107,14 @@
                                         <div class="col-12">
                                             <label class="label">Id No.</label>
                                             <asp:TextBox ID="txtStdntId" runat="server" autocomplete="off" class="form-control w-100" placeholder="XXX XXX XXX"></asp:TextBox>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="label">Program</label>
+                                            <asp:DropDownList ID="ddlProgram" class="form-control" runat="server">
+                                                <asp:ListItem>--Select Program--</asp:ListItem>
+                                                <asp:ListItem>Bachelor</asp:ListItem>
+                                                <asp:ListItem>Masters</asp:ListItem>
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
                                 </asp:Panel>
@@ -129,7 +138,7 @@
                                     </div>
                                     <div class="col-12">
                                         <label class="label"></label>
-                                        <asp:Image ID="imgPic" Style="border: 1px solid #d3d3d3; border-radius: 5px; width: 150px; height: 150px;margin-top: 5px;" ImageUrl="/Link/user.png" runat="server" />
+                                        <asp:Image ID="imgPic" Style="border: 1px solid #d3d3d3; border-radius: 5px; width: 150px; height: 150px; margin-top: 5px;" ImageUrl="/Link/user.png" runat="server" />
                                     </div>
                                     <div class="col-12">
                                         <label class="label">Password</label>
@@ -139,7 +148,7 @@
                                 <div class="p-t-15">
                                     <button id="btnSave" class="btn btn-primary mt-2" runat="server" onserverclick="btnSave_OnServerClick" type="submit">Sign up</button>
                                 </div>
-                                 
+
                             </div>
                         </div>
                     </div>

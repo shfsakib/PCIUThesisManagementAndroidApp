@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/root.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="PCIUTMSApp.app.home" %>
 
+<%@ Import Namespace="PCIUTMSApp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -69,6 +71,9 @@
                 </div>
                 <!-- /.col -->
             </div>
+            <% HttpCookie cookie = Function.GetCookie();%>
+            <% if (cookie["Type"].ToString() == "Coordinator")
+               { %>
             <div class="row">
                 <div class="col-lg-4">
                     <asp:DropDownList ID="ddlType" AutoPostBack="True" OnSelectedIndexChanged="ddlType_OnSelectedIndexChanged" class="form-control w-100" runat="server">
@@ -112,7 +117,7 @@
                                 <ItemTemplate>
                                     <asp:Label ID="Label72" runat="server" Text='<%#Exist(Eval("Department").ToString())%>'></asp:Label>
                                 </ItemTemplate>
-                            </asp:TemplateField> 
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Picture">
                                 <ItemTemplate>
                                     <asp:Image runat="server" Style="width: 75px; height: 75px" ImageUrl='<%#Image(Eval("Picture").ToString())%>'></asp:Image>
@@ -128,6 +133,7 @@
                     </asp:GridView>
                 </div>
             </div>
+            <% } %>
         </div>
     </div>
 </asp:Content>

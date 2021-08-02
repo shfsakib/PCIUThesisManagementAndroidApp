@@ -1,12 +1,40 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/root.Master" AutoEventWireup="true" CodeBehind="send-application.aspx.cs" Inherits="PCIUTMSApp.app.send_application" %>
 
+<%@ Import Namespace="PCIUTMSApp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../Link/editor.css" rel="stylesheet" />
     <div class="col-md-12">
         <div class="row">
+            <div class="col-md-12">
+                <strong>Application Type:</strong>
+                <%Function func = Function.GetInstance();
+                    string program = func.IsExist($"SELECT Program FROM Registration WHERE RegistrationId='{func.UserIdCookie()}'");
+                    if (program.ToUpper() == "BACHELOR")
+                    { %>
+                <asp:DropDownList ID="ddlType" class="form-control" runat="server">
+                    <asp:ListItem>--Select Type--</asp:ListItem>
+                    <asp:ListItem>Before Assign</asp:ListItem>
+                    <asp:ListItem>Proposal</asp:ListItem>
+                    <asp:ListItem>Final</asp:ListItem>
+                </asp:DropDownList>
+                <% }
+                    else
+                    {%>
+                <asp:DropDownList ID="ddlTypeMSC" class="form-control" runat="server">
+                    <asp:ListItem>--Select Type--</asp:ListItem>
+                    <asp:ListItem>Before Assign</asp:ListItem>
+                    <asp:ListItem>Proposal</asp:ListItem>
+                    <asp:ListItem>Second Demo</asp:ListItem>
+                    <asp:ListItem>Final</asp:ListItem>
+                </asp:DropDownList>
+                <% } %>
+            </div>
+            <asp:Label ID="lblProgram" Style="display: none;" runat="server" Text=""></asp:Label>
             <div class="col-12" style="padding: 10px;">
+                <strong>Application Format (Please change this format based on your application type):</strong>
                 <div id="container">
                     <fieldset>
                         <button class="fontStyle italic" onclick="document.execCommand('italic', false, null);return false;" title="Italicize Highlighted Text"><i class="fas fa-italic"></i></button>
@@ -68,11 +96,13 @@
 
                     </fieldset>
                     <%--data-text="Enter comment...."--%>
-                    <div id="editor1" contenteditable="true">
+                    <div id="editor1" runat="server" style="padding: 5px 10px; border: 1px solid;" contenteditable="true" onkeypress="return (this.innerText.length <= 1070000000)">
                         <div><b>Date</b></div>
-                        <div><b>
-                            <br>
-                        </b></div>
+                        <div>
+                            <b>
+                                <br>
+                            </b>
+                        </div>
                         <div>To</div>
                         <div>The Chairman</div>
                         <div>Department of&nbsp;<span style="font-weight: 700;">Department Name</span>,</div>
@@ -87,7 +117,8 @@
                             <br>
                         </div>
                         <div>&nbsp;____________________</div>
-                        <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Signature<br>
+                        <div>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Signature<br>
                         </div>
                         <div>
                             <br>
@@ -107,7 +138,8 @@
                             <br>
                         </div>
                         <div>&nbsp;______________________</div>
-                        <div><span style="font-weight: 700;">Student Name</span><br>
+                        <div>
+                            <span style="font-weight: 700;">Student Name</span><br>
                         </div>
                         <div>ID:&nbsp;<span style="font-weight: 700;">Student Id</span></div>
                         <div><span style="font-weight: 700;">(B.Sc./M.Sc.)</span>&nbsp;in&nbsp;<span style="font-weight: 700;">Department Name</span></div>
@@ -115,6 +147,9 @@
                     </div>
 
                 </div>
+            </div>
+            <div class="col-md-12">
+                <asp:Button ID="btnSend" class="btn btn-primary btn-block" OnClick="btnSend_OnClick" runat="server" Text="Send Application" />
             </div>
         </div>
     </div>

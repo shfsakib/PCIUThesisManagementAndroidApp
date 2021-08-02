@@ -114,17 +114,25 @@ namespace PCIUTMSApp
                         func.PopAlert(this, "Teacher id is required");
 
                     }
-                    a = func.Execute(
-                        $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink) VALUES('{ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{ddlType.SelectedItem.ToString()}','{pic}','{ddlDepartment.SelectedValue}','{txtDesignation.Text}','{txtTimeFrom.Text}','{txtTimeTo.Text}','{txtTeacherId.Text}','{txtPass.Text}','W','{func.Date()}','')");
-                    if (a)
-                    {
-                        func.AlertWithRedirect(this, "Registered successfully, Please wait for account approval by admin","/log-in.aspx");
-                       
-                        Refresh();
-                    }
                     else
                     {
-                        func.PopAlert(this, "Registration failed");
+                        a = func.Execute(
+                            $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink,Program) VALUES('{
+                                ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{
+                                ddlType.SelectedItem.ToString()}','{pic}','{ddlDepartment.SelectedValue}','{
+                                txtDesignation.Text}','{txtTimeFrom.Text}','{txtTimeTo.Text}','{txtTeacherId.Text}','{
+                                txtPass.Text}','W','{func.Date()}','','')");
+                        if (a)
+                        {
+                            func.AlertWithRedirect(this,
+                                "Registered successfully, Please wait for account approval by admin", "/log-in.aspx");
+
+                            Refresh();
+                        }
+                        else
+                        {
+                            func.PopAlert(this, "Registration failed");
+                        }
                     }
                 }
                 else if (ddlType.Text == "Student")
@@ -137,16 +145,23 @@ namespace PCIUTMSApp
                     {
                         func.PopAlert(this, "Student id is required");
                     }
-                    a = func.Execute(
-                        $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink) VALUES('{ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{ddlType.SelectedItem.ToString()}','{pic}','{ddlStudentDepartment.SelectedValue}','','','','{txtStdntId.Text}','{txtPass.Text}','W','{func.Date()}','')");
-                    if (a)
+                    else if (ddlProgram.SelectedIndex == -1)
                     {
-                        func.AlertWithRedirect(this, "Registered successfully, Please wait for account approval by admin", "/log-in.aspx");
-                        Refresh();
+                        func.PopAlert(this, "Program is required");
                     }
                     else
                     {
-                        func.PopAlert(this, "Registration failed");
+                        a = func.Execute(
+                            $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink,Program) VALUES('{ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{ddlType.SelectedItem.ToString()}','{pic}','{ddlStudentDepartment.SelectedValue}','','','','{txtStdntId.Text}','{txtPass.Text}','W','{func.Date()}','','{ddlProgram.SelectedValue}')");
+                        if (a)
+                        {
+                            func.AlertWithRedirect(this, "Registered successfully, Please wait for account approval by admin", "/log-in.aspx");
+                            Refresh();
+                        }
+                        else
+                        {
+                            func.PopAlert(this, "Registration failed");
+                        }
                     }
                 }
                 else if (ddlType.Text == "Coordinator")
@@ -155,16 +170,23 @@ namespace PCIUTMSApp
                     {
                         func.PopAlert(this, "Coordinator id is required");
                     }
-                    a = func.Execute(
-                        $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink) VALUES('{ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{ddlType.SelectedItem.ToString()}','{pic}','','{txtDesignation.Text}','','','{txtCOId.Text}','{txtPass.Text}','W','{func.Date()}','')");
-                    if (a)
-                    {
-                        func.AlertWithRedirect(this, "Registered successfully, Please wait for account approval by admin", "/log-in.aspx");
-                        Refresh();
-                    }
                     else
                     {
-                        func.PopAlert(this, "Registration failed");
+                        a = func.Execute(
+                            $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink,Program) VALUES('{
+                                ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{
+                                ddlType.SelectedItem.ToString()}','{pic}','','{txtDesignation.Text}','','','{
+                                txtCOId.Text}','{txtPass.Text}','W','{func.Date()}','','')");
+                        if (a)
+                        {
+                            func.AlertWithRedirect(this,
+                                "Registered successfully, Please wait for account approval by admin", "/log-in.aspx");
+                            Refresh();
+                        }
+                        else
+                        {
+                            func.PopAlert(this, "Registration failed");
+                        }
                     }
                 }
 
