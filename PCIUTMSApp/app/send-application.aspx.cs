@@ -37,7 +37,7 @@ namespace PCIUTMSApp.app
                 {
                     func.PopAlert(this, "Please choose an application type");
                 }
-                type = "Bachelor";
+                type = ddlType.Text;
             }
             if (lblProgram.Text == "Masters")
             {
@@ -45,7 +45,7 @@ namespace PCIUTMSApp.app
                 {
                     func.PopAlert(this, "Please choose an application type");
                 }
-                type = "Masters";
+                type = ddlTypeMSC.Text;
 
             }
             else

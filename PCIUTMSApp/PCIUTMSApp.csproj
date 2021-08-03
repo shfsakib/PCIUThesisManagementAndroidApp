@@ -94,6 +94,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\all-application.aspx" />
+    <Content Include="app\application-list.aspx" />
     <Content Include="app\coordinator-list.aspx" />
     <Content Include="app\department-list.aspx" />
     <Content Include="app\home.aspx" />
@@ -334,6 +336,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="app\all-application.aspx.cs">
+      <DependentUpon>all-application.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\all-application.aspx.designer.cs">
+      <DependentUpon>all-application.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\application-list.aspx.cs">
+      <DependentUpon>application-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\application-list.aspx.designer.cs">
+      <DependentUpon>application-list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="app\coordinator-list.aspx.cs">
       <DependentUpon>coordinator-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
