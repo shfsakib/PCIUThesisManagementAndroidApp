@@ -96,12 +96,14 @@
   <ItemGroup>
     <Content Include="app\all-application.aspx" />
     <Content Include="app\application-list.aspx" />
+    <Content Include="app\assign-supervisor.aspx" />
     <Content Include="app\coordinator-list.aspx" />
     <Content Include="app\department-list.aspx" />
     <Content Include="app\home.aspx" />
     <Content Include="app\send-application.aspx" />
     <Content Include="app\student-list.aspx" />
     <Content Include="app\teacher-list.aspx" />
+    <Content Include="app\update-assign.aspx" />
     <Content Include="app\update-department.aspx" />
     <Content Include="Link\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
     <Content Include="Link\bower_components\bootstrap-colorpicker\dist\js\bootstrap-colorpicker.min.js" />
@@ -350,6 +352,13 @@
     <Compile Include="app\application-list.aspx.designer.cs">
       <DependentUpon>application-list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="app\assign-supervisor.aspx.cs">
+      <DependentUpon>assign-supervisor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\assign-supervisor.aspx.designer.cs">
+      <DependentUpon>assign-supervisor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="app\coordinator-list.aspx.cs">
       <DependentUpon>coordinator-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -384,6 +393,13 @@
     </Compile>
     <Compile Include="app\teacher-list.aspx.designer.cs">
       <DependentUpon>teacher-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\update-assign.aspx.cs">
+      <DependentUpon>update-assign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\update-assign.aspx.designer.cs">
+      <DependentUpon>update-assign.aspx</DependentUpon>
     </Compile>
     <Compile Include="app\update-department.aspx.cs">
       <DependentUpon>update-department.aspx</DependentUpon>

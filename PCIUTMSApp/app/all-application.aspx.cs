@@ -40,7 +40,15 @@ FROM            Application INNER JOIN
 
         protected void gridApplication_OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
-
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                LinkButton lnkApprove = (LinkButton)e.Row.FindControl("lnkAccept");
+                LinkButton lnkInactive = (LinkButton)e.Row.FindControl("lnkInactive");
+                if (ddlStatus.SelectedValue == "A")
+                {
+                    lnkApprove.Visible = lnkInactive.Visible = false;
+                }
+            }
         }
 
         protected void lnActive_OnClick(object sender, EventArgs e)
