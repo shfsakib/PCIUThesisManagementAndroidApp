@@ -104,6 +104,7 @@
     <Content Include="app\profile.aspx" />
     <Content Include="app\send-application.aspx" />
     <Content Include="app\student-list.aspx" />
+    <Content Include="app\supervisor-profile.aspx" />
     <Content Include="app\teacher-list.aspx" />
     <Content Include="app\update-assign.aspx" />
     <Content Include="app\update-department.aspx" />
@@ -402,6 +403,13 @@
     </Compile>
     <Compile Include="app\student-list.aspx.designer.cs">
       <DependentUpon>student-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\supervisor-profile.aspx.cs">
+      <DependentUpon>supervisor-profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\supervisor-profile.aspx.designer.cs">
+      <DependentUpon>supervisor-profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="app\teacher-list.aspx.cs">
       <DependentUpon>teacher-list.aspx</DependentUpon>
