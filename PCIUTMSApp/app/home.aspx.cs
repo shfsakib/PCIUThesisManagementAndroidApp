@@ -22,6 +22,7 @@ namespace PCIUTMSApp.app
                 func.CheckCookies();
                 lblStudent.Text = func.IsExist("SELECT COUNT(Name) FROM Registration WHERE Type='Student'");
                 lblTeacher.Text = func.IsExist("SELECT COUNT(Name) FROM Registration WHERE Type='Teacher'");
+                lblApplication.Text = func.IsExist("SELECT COUNT(StudentId) FROM Application WHERE Status='A'");
                 Load();
             }
         }

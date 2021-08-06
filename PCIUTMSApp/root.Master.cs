@@ -20,6 +20,7 @@ namespace PCIUTMSApp
             if (!IsPostBack)
             {
                 func.CheckCookies();
+                func.CheckStatus("Registration", "RegistrationId");
             }
         }
         public string GetImage(string link)

@@ -19,12 +19,14 @@ namespace PCIUTMSApp.app
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["id"]==null)
+                if (Request.QueryString["id"] == null)
                 {
                     Response.Redirect("/log-in.aspx");
                 }
                 func.BindDropDown(ddlTeacher, "Select Supervisor", $@"SELECT NAME+' | '+IdNo Name,RegistrationId Id FROM Registration WHERE Type='Teacher' ORDER BY Name ASC");
-                func.BindDropDown(ddlStudent, "Select Student", $@"SELECT NAME+' | '+IdNo Name,RegistrationId Id FROM Registration WHERE Type='Student' ORDER BY Name ASC");
+                func.BindDropDown(ddlStudent, "Select Student", $@"SELECT        Application.StudentId ID, Registration.Name +' | '+ Registration.Email NAME
+FROM            Application INNER JOIN
+                         Registration ON Application.StudentId = Registration.RegistrationId WHERE Application.Status='A' AND  Registration.Type='Student' ORDER BY Name ASC");
                 Load();
             }
         }
@@ -33,24 +35,36 @@ namespace PCIUTMSApp.app
         {
             ddlStudent.SelectedValue =
                 func.IsExist($@"SELECT StudentId From AssignSupervisor WHERE AssignId='{Request.QueryString["id"]}'");
-            ddlTeacher.SelectedValue=
+            ddlTeacher.SelectedValue =
                 func.IsExist($@"SELECT SupervisorId From AssignSupervisor WHERE AssignId='{Request.QueryString["id"]}'");
 
         }
 
         protected void btnUpdateAssign_OnClick(object sender, EventArgs e)
         {
-            string id = Request.QueryString["id"];
-            bool ans =
-                func.Execute(
-                    $@"UPDATE AssignSupervisor SET SupervisorId='{ddlTeacher.SelectedValue}',StudentId='{ddlStudent.SelectedValue}' WHERE AssignId='{id}'");
-            if (ans)
+            if (ddlTeacher.Text == "--SELECT SUPERVISOR--")
             {
-                func.AlertWithRedirect(this,"Updated successfully","/app/assign-supervisor.aspx");
+                func.PopAlert(this, "Supervisor is required");
+            }
+            else if (ddlStudent.Text== "--SELECT STUDENT--")
+            {
+                func.PopAlert(this, "Student is required");
             }
             else
             {
-                func.PopAlert(this,"Failed to update");
+                string id = Request.QueryString["id"];
+                bool ans =
+                    func.Execute(
+                        $@"UPDATE AssignSupervisor SET SupervisorId='{ddlTeacher.SelectedValue}',StudentId='{ddlStudent.SelectedValue}' WHERE AssignId='{id}'");
+                if (ans)
+                {
+                    func.AlertWithRedirect(this, "Updated successfully", "/app/assign-supervisor.aspx");
+                }
+                else
+                {
+                    func.PopAlert(this, "Failed to update");
+                }
+
             }
         }
     }

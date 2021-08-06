@@ -103,7 +103,7 @@
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="/app/own-profile.aspx?id" class="btn btn-default btn-flat">Profile</a>
+                                            <a href="/app/profile.aspx" class="btn btn-default btn-flat">Profile</a>
                                         </div>
                                         <div class="pull-right">
                                             <asp:LinkButton ID="lnkLogOut" class="btn btn-default btn-flat" OnClick="lnkLogOut_OnClick" runat="server">Sign out</asp:LinkButton>
@@ -123,22 +123,21 @@
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
-                    <%-- <% if (cookie != null)
+                    <% if (cookie != null)
                         {
                     %>
                     <div class="user-panel">
-
                         <div class="pull-left image">
                             <img src='<%=GetImage(cookie["Picture"].ToString()) %>' class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
                             <p><%=cookie["Name"].ToString()%></p>
+                            <p><%=cookie["Type"].ToString()%></p>
                         </div>
-
                     </div>
-                    <% } %>--%>
+                    <% } %>
                     <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <%--<% if (cookie == null)
+                    <% if (cookie == null)
                         {
                     %>
                     <ul class="sidebar-menu" data-widget="tree">
@@ -149,7 +148,7 @@
                         </li>
                     </ul>
                     <% }
-                        else if (cookie["Type"] == "Customer")
+                        else if (cookie["Type"] == "Student")
                         {
                     %>
                     <ul class="sidebar-menu" data-widget="tree">
@@ -159,27 +158,28 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/user/service-request.aspx">
-                                <i class="fas fa-tools"></i><span>&nbsp;&nbsp;Service Request</span>
+                            <a href="/app/send-application.aspx">
+                                <i class="fa fa-enveloper"></i><span>&nbsp;&nbsp;Send Application</span>
                             </a>
                         </li>
                     </ul>
                     <% }
-                        else if (cookie["Type"] == "Garage")
+                        else if (cookie["Type"] == "Teacher")
                         {
                     %>
                     <ul class="sidebar-menu" data-widget="tree">
                         <li>
-                            <a href="/user/add-service.aspx">
-                                <i class="fas fa-tools"></i><span>&nbsp;&nbsp;Service Info</span>
+                            <a href="/app/home.aspx">
+                                <i class="fa fa-dashboard"></i><span>&nbsp;&nbsp;Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/user/customer-booking-request.aspx">
-                                <i class="fas fa-book"></i><span>&nbsp;&nbsp;Booking Request</span>
+                            <a href="/app/assigned-student-list.aspx">
+                                <i class="fa fa-user-graduate"></i><span>&nbsp;&nbsp;Assigned Student</span>
                             </a>
                         </li>
-                        <li class="treeview">
+                    </ul>
+                    <%-- <li class="treeview">
                             <a href="#">
                                 <i class="fas fa-money-check"></i><span>&nbsp;&nbsp;Monthly Charge</span>
                                 <span class="pull-right-container">
@@ -190,77 +190,50 @@
                                 <li class=""><a href="/user/monthly-charge.aspx"><i class="fa fa-circle-o"></i>Pay charge</a></li>
                                 <li><a href="/user/monthly-charge-list.aspx"><i class="fa fa-circle-o"></i>Charge List</a></li>
                             </ul>
-                        </li>
-                    </ul>
+                        </li>--%>
                     <% }
-                        else if (cookie["Type"] == "Super Admin")
+                        else if (cookie["Type"] == "Coordinator")
                         { %>
                     <ul class="sidebar-menu" data-widget="tree">
                         <li>
-                            <a href="/user/add-location.aspx">
-                                <i class="fas fa-map-marker-alt"></i><span>&nbsp;&nbsp;Location Info</span>
+                            <a href="/app/home.aspx">
+                                <i class="fa fa-dashboard"></i><span>&nbsp;&nbsp;Dashboard</span>
                             </a>
                         </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fas fa-user"></i><span>&nbsp;&nbsp;User Info</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
+                        <li>
+                            <a href="/app/home.aspx">
+                                <i class="fa fa-building"></i><span>&nbsp;&nbsp;Department List</span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li class=""><a href="/user/customer-list.aspx"><i class="fa fa-circle-o"></i>Customer List</a></li>
-                                <li><a href="/user/garage-list.aspx"><i class="fa fa-circle-o"></i>Garage List</a></li>
-                            </ul>
                         </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fas fa-user-tie"></i><span>&nbsp;&nbsp;Admin Info</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
+                        <li>
+                            <a href="/app/student-list.aspx">
+                                <i class="fas fa-user-graduate"></i><span>&nbsp;&nbsp;Student List</span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li class=""><a href="/user/create-admin.aspx"><i class="fa fa-circle-o"></i>Create Admin</a></li>
-                                <li><a href="/user/admin-list.aspx"><i class="fa fa-circle-o"></i>Admin List</a></li>
-                            </ul>
                         </li>
+                        <li>
+                            <a href="/app/teacher-list.aspx">
+                                <i class="fas fa-school"></i><span>&nbsp;&nbsp;Teacher List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/coordinator-list.aspx">
+                                <i class="fas fa-user-tie"></i><span>&nbsp;&nbsp;Coordinator List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/application-list.aspx">
+                                <i class="fa fa-envelope"></i><span>&nbsp;&nbsp;Application List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/assign-supervisor.aspx">
+                                <i class="fa fa-book-reader"></i><span>&nbsp;&nbsp;Assign Supervisor</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <% }%>
 
-                        <li>
-                            <a href="/user/all-user-charge-list.aspx">
-                                <i class="fas fa-money-check"></i><span>&nbsp;&nbsp;Payment List</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <% }
-                        else if (cookie["Type"] == "Admin")
-                        {%>
-                    <ul class="sidebar-menu" data-widget="tree">
-                        <li>
-                            <a href="/user/add-location.aspx">
-                                <i class="fas fa-map-marker-alt"></i><span>&nbsp;&nbsp;Location Info</span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fas fa-user"></i><span>&nbsp;&nbsp;User Info</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li class=""><a href="/user/customer-list.aspx"><i class="fa fa-circle-o"></i>Customer List</a></li>
-                                <li><a href="/user/garage-list.aspx"><i class="fa fa-circle-o"></i>Garage List</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="/user/all-user-charge-list.aspx">
-                                <i class="fas fa-money-check"></i><span>&nbsp;&nbsp;Payment List</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <% } %>--%>
-                    <ul class="sidebar-menu" data-widget="tree">
+                    <%--<ul class="sidebar-menu" data-widget="tree">
                         <li class="active treeview">
                             <a href="#">
                                 <i class="fa fa-dashboard"></i><span>Dashboard</span>
@@ -279,7 +252,7 @@
                                 <i class="fa fa-th"></i><span>Widgets</span>
                             </a>
                         </li>
-                    </ul>
+                    </ul>--%>
                 </section>
                 <!-- /.sidebar -->
             </aside>

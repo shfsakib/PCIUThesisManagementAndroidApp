@@ -97,9 +97,11 @@
     <Content Include="app\all-application.aspx" />
     <Content Include="app\application-list.aspx" />
     <Content Include="app\assign-supervisor.aspx" />
+    <Content Include="app\assigned-student-list.aspx" />
     <Content Include="app\coordinator-list.aspx" />
     <Content Include="app\department-list.aspx" />
     <Content Include="app\home.aspx" />
+    <Content Include="app\profile.aspx" />
     <Content Include="app\send-application.aspx" />
     <Content Include="app\student-list.aspx" />
     <Content Include="app\teacher-list.aspx" />
@@ -359,6 +361,13 @@
     <Compile Include="app\assign-supervisor.aspx.designer.cs">
       <DependentUpon>assign-supervisor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="app\assigned-student-list.aspx.cs">
+      <DependentUpon>assigned-student-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\assigned-student-list.aspx.designer.cs">
+      <DependentUpon>assigned-student-list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="app\coordinator-list.aspx.cs">
       <DependentUpon>coordinator-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -372,6 +381,13 @@
     </Compile>
     <Compile Include="app\department-list.aspx.designer.cs">
       <DependentUpon>department-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="app\send-application.aspx.cs">
       <DependentUpon>send-application.aspx</DependentUpon>
