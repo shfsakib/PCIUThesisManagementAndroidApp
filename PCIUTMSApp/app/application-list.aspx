@@ -23,6 +23,11 @@
                                 <asp:Label ID="Label9" runat="server" Text='<%#Eval("Type")%>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Program">
+                            <ItemTemplate>
+                                <asp:Label ID="lblProgram" runat="server" Text='<%#Eval("Program")%>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Application_Time">
                             <ItemTemplate>
                                 <asp:HiddenField ID="HiddenField1" runat="server" Value='<%#Eval("ApplicationId")%>' />

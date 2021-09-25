@@ -27,6 +27,19 @@ namespace PCIUTMSApp.app
         {
             ScriptManager.RegisterStartupScript(this, Page.GetType(), "editor", "document.execCommand('italic',false,null);", true);
         }
+        private bool IsSend(string program, string type)
+        {
+            bool ans = false;
+            string x =
+                func.IsExist(
+                    $"SELECT Program FROM Application WHERE Program='{lblProgram.Text}' AND StudentId='{func.UserIdCookie()}' AND Type='{type}'");
+
+            if (x != "")
+            {
+                ans = true;
+            }
+            return ans;
+        }
 
         protected void btnSend_OnClick(object sender, EventArgs e)
         {
@@ -50,18 +63,28 @@ namespace PCIUTMSApp.app
             }
             else
             {
-
-                bool ans =
-                    func.Execute(
-                        $@"INSERT INTO Application(Program,Type,Status,StudentId,ApplicationText,ApplicationTime) VALUES('{lblProgram.Text}','{type}','I','{func.UserIdCookie()}','{editor1.InnerText}','{func.Date()}')");
-                if (ans)
+                if (IsSend(lblProgram.Text, type))
                 {
-                    func.AlertWithRedirect(this, "Application sent successfully","/app/home.aspx");
-                    ddlType.SelectedIndex = ddlTypeMSC.SelectedIndex = -1;
+                    func.PopAlert(this, "Application already sent for " + type);
+                    return;
+
                 }
                 else
                 {
-                    func.PopAlert(this, "Failed to sent application");
+                    bool ans =
+                        func.Execute(
+                            $@"INSERT INTO Application(Program,Type,Status,StudentId,ApplicationText,ApplicationTime) VALUES('{
+                                lblProgram.Text}','{type}','I','{func.UserIdCookie()}','{editor1.InnerText}','{
+                                func.Date()}')");
+                    if (ans)
+                    {
+                        func.AlertWithRedirect(this, "Application sent successfully", "/app/home.aspx");
+                        ddlType.SelectedIndex = ddlTypeMSC.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        func.PopAlert(this, "Failed to sent application");
+                    }
                 }
             }
         }
