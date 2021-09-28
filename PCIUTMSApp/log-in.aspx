@@ -60,9 +60,7 @@
                     <p class="mb-0">
                         <a href="sign-up.aspx" class="text-center">Register here</a>
                     </p>
-                    <p class="mb-0">
-                        <a href="/app/home.aspx" class="text-center">Go home</a>
-                    </p>
+                    
                 </form>
             </div>
             <!-- /.login-card-body -->
