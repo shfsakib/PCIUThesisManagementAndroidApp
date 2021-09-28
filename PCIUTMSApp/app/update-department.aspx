@@ -11,10 +11,10 @@
             </div>
         </div>
     </div>
-    <div class="card card-body m-3">
+    <div class="card card-body m-3" style="padding:15px;">
         <div class="row">
             <div class="col-lg-4"></div>
-            <div class="col-lg-4 justify-content-center">
+            <div class="col-lg-4 justify-content-center" >
                 <span>Department Name</span>
                 <asp:TextBox ID="txtDepartmentName" class="form-control w-100 mt-1" placeholder="CSE,EEE etc" runat="server"></asp:TextBox>
             </div>
