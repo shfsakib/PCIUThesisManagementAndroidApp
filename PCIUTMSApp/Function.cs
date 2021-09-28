@@ -33,6 +33,7 @@ namespace PCIUTMSApp
                 con = new SqlConnection(Connection);
             }
         }
+        public string Connection1 = new SqlConnectionStringBuilder        {            DataSource = ".\\local",            InitialCatalog = "ThesisDb",            UserID = "sa",            Password = "123456789",            MultipleActiveResultSets = true,            Pooling = true,            MinPoolSize = 0,            MaxPoolSize = 4000,            ConnectTimeout = 0        }.ToString();
         public string Connection = @"Data Source=.\local;Initial Catalog=ThesisDb;Integrated Security=True";
         public void BindDropDown(DropDownList ddl, string root, string query)
         {

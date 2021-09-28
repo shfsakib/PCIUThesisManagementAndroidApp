@@ -92,7 +92,7 @@
                                             <label class="label">Id No.</label>
                                             <asp:TextBox ID="txtTeacherId" runat="server" autocomplete="off" class="form-control w-100" placeholder="XXX XXX XXX"></asp:TextBox>
                                         </div>
-                                        
+
                                     </div>
 
                                 </asp:Panel>
@@ -193,6 +193,23 @@
                 }
             }
     </script>
+    <script>
+        $(document).ready(function () {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 
+            } else {
+                alert('You are not allowed to open this app in browser');
+                location.href = 'http://google.it';
+            }
+        });
+        function pageLoad() {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+            } else {
+                alert('You are not allowed to open this app in browser');
+                location.href = 'http://google.it';
+            }
+        }
+    </script>
 </body>
 </html>

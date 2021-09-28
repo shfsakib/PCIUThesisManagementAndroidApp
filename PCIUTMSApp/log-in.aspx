@@ -60,7 +60,7 @@
                     <p class="mb-0">
                         <a href="sign-up.aspx" class="text-center">Register here</a>
                     </p>
-                     <p class="mb-0">
+                    <p class="mb-0">
                         <a href="/app/home.aspx" class="text-center">Go home</a>
                     </p>
                 </form>
@@ -76,5 +76,23 @@
     <script src="/Link/log-in/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/Link/log-in/dist/js/adminlte.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+            } else {
+                alert('You are not allowed to open this app in browser');
+                location.href = 'http://google.it';
+            }
+        });
+        function pageLoad() {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+            } else {
+                alert('You are not allowed to open this app in browser');
+                location.href = 'http://google.it';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -159,7 +159,12 @@
                         </li>
                         <li>
                             <a href="/app/send-application.aspx">
-                                <i class="fa fa-envelope"></i><span>&nbsp;&nbsp;Send Application</span>
+                                <i class="fa fa-share-square"></i><span>&nbsp;&nbsp;Send Application</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/application-list.aspx">
+                                <i class="fa fa-envelope"></i><span>&nbsp;&nbsp;Application List</span>
                             </a>
                         </li>
                         <li>
@@ -226,7 +231,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/app/application-list.aspx">
+                            <a href="/app/all-application.aspx">
                                 <i class="fa fa-envelope"></i><span>&nbsp;&nbsp;Application List</span>
                             </a>
                         </li>
@@ -436,6 +441,24 @@
                 closeOnSelect: false
             });
         });
+    </script>
+    <script>
+        $(document).ready(function () {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+            } else {
+                alert('You are not allowed to open this app in browser');
+                location.href = 'http://google.it';
+            }
+        });
+        function pageLoad() {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+            } else {
+                alert('You are not allowed to open this app in browser');
+                location.href = 'http://google.it';
+            }
+        }
     </script>
 </body>
 </html>
