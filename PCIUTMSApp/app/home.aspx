@@ -75,6 +75,9 @@
             <% if (cookie["Type"].ToString() == "Coordinator")
                { %>
             <div class="row">
+                <div class="col-md-12">
+                    <h4>Pending List</h4>
+                </div>
                 <div class="col-lg-4">
                     <asp:DropDownList ID="ddlType" AutoPostBack="True" OnSelectedIndexChanged="ddlType_OnSelectedIndexChanged" class="form-control w-100" runat="server">
                         <asp:ListItem>Teacher</asp:ListItem>

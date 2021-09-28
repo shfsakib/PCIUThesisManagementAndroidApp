@@ -206,7 +206,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/app/home.aspx">
+                            <a href="/app/department-list.aspx">
                                 <i class="fa fa-building"></i><span>&nbsp;&nbsp;Department List</span>
                             </a>
                         </li>
