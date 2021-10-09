@@ -1,0 +1,472 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="root.Master.cs" Inherits="PCIUTMSApp.root" %>
+
+<%@ Import Namespace="PCIUTMSApp" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>TPMS</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="/Link/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Font Awesome -->
+    <link rel="icon" href="/Link/tpms.png" type="image/gif" sizes="16x16" />
+
+    <link rel="stylesheet" href="/Link/bower_components/font-awesome/css/font-awesome.min.css" />
+    <script src="/Link/font-awesome.js"></script>
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/Link/bower_components/Ionicons/css/ionicons.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/Link/dist/css/AdminLTE.min.css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/Link/dist/css/skins/_all-skins.min.css" />
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="/Link/bower_components/morris.js/morris.css" />
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="vbower_components/jvectormap/jquery-jvectormap.css" />
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="/Link/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" />
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="/Link/bower_components/bootstrap-daterangepicker/daterangepicker.css" />
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="/Link/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" />
+    <!-- Google Font -->
+    <link href="Link/font-awesome.css" rel="stylesheet" />
+    <script src="Link/font-awesome.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <form runat="server">
+        <div class="wrapper">
+
+            <header class="main-header">
+                <!-- Logo -->
+                <a href="/app/home.aspx" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini">
+                        <img src="/Link/tpms.png" style="width: 40px; height: 40px;" /></span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg">
+                        <img src="/Link/tpms.png" style="width: 40px; height: 40px;" />&nbsp;<b>TP</b>MS</span>
+                </a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+                    <div class="navbar-custom-menu">
+                        <% HttpCookie cookie = Function.GetCookie(); %>
+                        <% if (cookie == null)
+                            {
+                        %>
+                        <ul class="nav navbar-nav">
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu">
+                                <a href="/log-in.aspx"><i class="fas fa-key"></i>&nbsp;&nbsp;Log in
+                                </a>
+                            </li>
+                            <li class="dropdown user user-menu">
+                                <a href="/sign-up.aspx"><i class="fas fa-lock"></i>&nbsp;&nbsp;Sign up
+                                </a>
+                            </li>
+
+                        </ul>
+                        <%
+                            }
+                            else
+                            { %>
+                        <ul class="nav navbar-nav">
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src='<%=GetImage(cookie["Picture"].ToString())%>' class="user-image" alt="Img" />
+                                    <span class="hidden-xs"><%=cookie["Name"].ToString() %></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="user-header">
+                                        <img src='<%=GetImage(cookie["Picture"].ToString()) %>' class="img-circle" alt="Img" />
+
+                                        <p>
+                                            <%=cookie["Name"].ToString()%>
+                                        </p>
+                                    </li>
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <a href="/app/profile.aspx" class="btn btn-default btn-flat">Profile</a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <asp:LinkButton ID="lnkLogOut" class="btn btn-default btn-flat" OnClick="lnkLogOut_OnClick" runat="server">Sign out</asp:LinkButton>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- Control Sidebar Toggle Button -->
+                            <li></li>
+                        </ul>
+                        <% } %>
+                    </div>
+                </nav>
+            </header>
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <% if (cookie != null)
+                        {
+                    %>
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src='<%=GetImage(cookie["Picture"].ToString()) %>' class="img-circle" alt="User Image">
+                        </div>
+                        <div class="pull-left info">
+                            <p><%=cookie["Name"].ToString()%></p>
+                            <p><%=cookie["Type"].ToString()%></p>
+                        </div>
+                    </div>
+                    <% } %>
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <% if (cookie == null)
+                        {
+                    %>
+                    <ul class="sidebar-menu" data-widget="tree">
+                        <li>
+                            <a href="/app/home.aspx">
+                                <i class="fa fa-home"></i><span>&nbsp;&nbsp;Dashboard</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <% }
+                        else if (cookie["Type"] == "Student")
+                        {
+                    %>
+                    <ul class="sidebar-menu" data-widget="tree">
+                        <li>
+                            <a href="/app/home.aspx">
+                                <i class="fa fa-home"></i><span>&nbsp;&nbsp;Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/send-application.aspx">
+                                <i class="fa fa-share-square"></i><span>&nbsp;&nbsp;Send Application</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/application-list.aspx">
+                                <i class="fa fa-envelope"></i><span>&nbsp;&nbsp;Application List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/supervisor-profile.aspx">
+                                <i class="fa fa-user-tie"></i><span>&nbsp;&nbsp;Supervisor Profile</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <% }
+                        else if (cookie["Type"] == "Teacher")
+                        {
+                    %>
+                    <ul class="sidebar-menu" data-widget="tree">
+                        <li>
+                            <a href="/app/home.aspx">
+                                <i class="fa fa-home"></i><span>&nbsp;&nbsp;Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/assigned-student-list.aspx">
+                                <i class="fa fa-user-graduate"></i><span>&nbsp;&nbsp;Assigned Student</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <%-- <li class="treeview">
+                            <a href="#">
+                                <i class="fas fa-money-check"></i><span>&nbsp;&nbsp;Monthly Charge</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class=""><a href="/user/monthly-charge.aspx"><i class="fa fa-circle-o"></i>Pay charge</a></li>
+                                <li><a href="/user/monthly-charge-list.aspx"><i class="fa fa-circle-o"></i>Charge List</a></li>
+                            </ul>
+                        </li>--%>
+                    <% }
+                        else if (cookie["Type"] == "Coordinator")
+                        { %>
+                    <ul class="sidebar-menu" data-widget="tree">
+                        <li>
+                            <a href="/app/home.aspx">
+                                <i class="fa fa-home"></i><span>&nbsp;&nbsp;Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/department-list.aspx">
+                                <i class="fa fa-building"></i><span>&nbsp;&nbsp;Department List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/student-list.aspx">
+                                <i class="fas fa-user-graduate"></i><span>&nbsp;&nbsp;Student List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/teacher-list.aspx">
+                                <i class="fas fa-school"></i><span>&nbsp;&nbsp;Teacher List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/coordinator-list.aspx">
+                                <i class="fas fa-user-tie"></i><span>&nbsp;&nbsp;Coordinator List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/all-application.aspx">
+                                <i class="fa fa-envelope"></i><span>&nbsp;&nbsp;Application List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/assign-supervisor.aspx">
+                                <i class="fa fa-book-reader"></i><span>&nbsp;&nbsp;Assign Supervisor</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <% }%>
+
+                    <%--<ul class="sidebar-menu" data-widget="tree">
+                        <li class="active treeview">
+                            <a href="#">
+                                <i class="fa fa-home"></i><span>Dashboard</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>Dashboard v1</a></li>
+                                <li><a href="index2.html"><i class="fa fa-circle-o"></i>Dashboard v2</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="pages/widgets.html">
+                                <i class="fa fa-th"></i><span>Widgets</span>
+                            </a>
+                        </li>
+                    </ul>--%>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+
+            <div class="content-wrapper" style="padding: 10px; padding-top: 0px;">
+                <div class="row">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <!-- right col -->
+
+                    <!-- /.content -->
+                </div>
+                <div class="control-sidebar-bg"></div>
+            </div>
+        </div>
+    </form>
+    <!-- ./wrapper -->
+    <style>
+        .wd {
+            width: 100% !important;
+        }
+
+        .content-header {
+            padding: 0 0 10px 15px !important;
+        }
+
+        .mp-0 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mp {
+            margin: 0;
+            padding: 2px 0 2px 0;
+        }
+
+        .pad-all {
+            padding: 0 0 10px 0 !important;
+        }
+
+        .mt2 {
+            margin-top: 2px !important;
+        }
+
+        td {
+            font-size: 18px !important;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #000;
+        }
+    </style>
+    <%--<style>
+        .ui-menu-item {
+            background-color: white !important;
+            width: auto;
+            max-width: 375px;
+            padding: 5px;
+            left: 2px;
+            overflow-x: auto;
+            cursor: pointer;
+            border: 1px solid #696969;
+        }
+
+            .ui-menu-item:hover {
+                background: lightseagreen !important;
+                color: white;
+            }
+
+            .ui-menu-item:focus {
+                background: lightseagreen !important;
+                color: white;
+            }
+    </style>--%>
+    <!-- jQuery 3 -->
+    <script src="/Link/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="/Link/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <%--<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>--%>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="/Link/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Morris.js charts -->
+    <script src="/Link/bower_components/raphael/raphael.min.js"></script>
+    <script src="/Link/bower_components/morris.js/morris.min.js"></script>
+    <!-- Sparkline -->
+    <script src="/Link/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- jvectormap -->
+    <script src="/Link/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/Link/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="/Link/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="/Link/bower_components/moment/min/moment.min.js"></script>
+    <script src="/Link/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- datepicker -->
+    <script src="/Link/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="/Link/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="/Link/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="/Link/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/Link/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="/Link/dist/js/pages/dashboard.js"></script>
+    <%-- Auto complete --%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="/Link/dist/js/demo.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="/Link/select2.css" rel="stylesheet" />
+
+    <%--<link href="/Link/Date-Picker.css" rel="stylesheet" />--%>
+    <script>
+        $(document).ready(function () {
+            $("#ContentPlaceHolder1_txtDob").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/mm/yy',
+                yearRange: '1901:2099'
+            });
+            window.history.pushState(null, "", window.location.href);
+            window.onpopstate = function () {
+                window.history.pushState(null, "", window.location.href);
+            };
+            $('.select2').select2({
+                closeOnSelect: false
+            });
+        });
+        function pageLoad() {
+            $("#ContentPlaceHolder1_txtDob").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/mm/yy',
+                yearRange: '1901:2099'
+            });
+            $('.select2').select2({
+                closeOnSelect: false
+            });
+        };
+        $(document).ready(function () {
+            $(".dateJ").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/mm/yy',
+                yearRange: '1901:2099'
+            });
+        });
+        function pageLoad() {
+            $(".dateJ").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/mm/yy',
+                yearRange: '1901:2099'
+            });
+        };
+    </script>
+    <%--select 2--%>
+    <script type="text/javascript">
+        $(function () {
+            $('.select2').select2({
+                closeOnSelect: false
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+            } else {
+                alert('You are not allowed to open this app in browser');
+                location.href = 'http://google.it';
+            }
+        });
+        function pageLoad() {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+            } else {
+                alert('You are not allowed to open this app in browser');
+                location.href = 'http://google.it';
+            }
+        }
+        $(window).resize(function () {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                //
+            } else {
+                alert('You are not allowed to open this app in browser');
+                location.href = 'http://google.it';
+            }
+        });
+    </script>
+</body>
+</html>

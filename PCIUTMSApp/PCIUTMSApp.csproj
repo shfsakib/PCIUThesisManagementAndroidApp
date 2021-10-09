@@ -327,6 +327,7 @@
     <Content Include="Link\bower_components\Ionicons\fonts\ionicons28b5.ttf" />
     <Content Include="Link\bower_components\Ionicons\fonts\ionicons28b5.woff" />
     <Content Include="root.Master" />
+    <None Include="Properties\PublishProfiles\ThesisApp.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -61,6 +61,5 @@ D:\Git\PCIUThesisManagementAndroidApp\PCIUTMSApp\bin\Microsoft.AI.Web.xml
 D:\Git\PCIUThesisManagementAndroidApp\PCIUTMSApp\bin\Microsoft.AI.WindowsServer.xml
 D:\Git\PCIUThesisManagementAndroidApp\PCIUTMSApp\bin\Microsoft.ApplicationInsights.xml
 D:\Git\PCIUThesisManagementAndroidApp\PCIUTMSApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Git\PCIUThesisManagementAndroidApp\PCIUTMSApp\obj\Debug\PCIUTMSApp.csprojResolveAssemblyReference.cache
 D:\Git\PCIUThesisManagementAndroidApp\PCIUTMSApp\obj\Debug\PCIUTMSApp.dll
 D:\Git\PCIUThesisManagementAndroidApp\PCIUTMSApp\obj\Debug\PCIUTMSApp.pdb
