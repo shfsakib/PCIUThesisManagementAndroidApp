@@ -32,7 +32,7 @@ namespace PCIUTMSApp.app
             bool ans = false;
             string x =
                 func.IsExist(
-                    $"SELECT Program FROM Application WHERE Program='{lblProgram.Text}' AND StudentId='{func.UserIdCookie()}' AND Type='{type}'");
+                    $"SELECT Program FROM Application WHERE Program='{lblProgram.Text}' AND RegistrationId='{func.UserIdCookie()}' AND Type='{type}'");
 
             if (x != "")
             {
@@ -73,7 +73,7 @@ namespace PCIUTMSApp.app
                 {
                     bool ans =
                         func.Execute(
-                            $@"INSERT INTO Application(Program,Type,Status,StudentId,ApplicationText,ApplicationTime) VALUES('{
+                            $@"INSERT INTO Application(Program,Type,Status,RegistrationId,ApplicationText,ApplicationTime) VALUES('{
                                 lblProgram.Text}','{type}','I','{func.UserIdCookie()}','{editor1.InnerText}','{
                                 func.Date()}')");
                     if (ans)

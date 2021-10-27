@@ -99,7 +99,6 @@
     <Content Include="app\assign-supervisor.aspx" />
     <Content Include="app\assigned-student-list.aspx" />
     <Content Include="app\coordinator-list.aspx" />
-    <Content Include="app\department-list.aspx" />
     <Content Include="app\home.aspx" />
     <Content Include="app\profile.aspx" />
     <Content Include="app\send-application.aspx" />
@@ -107,7 +106,6 @@
     <Content Include="app\supervisor-profile.aspx" />
     <Content Include="app\teacher-list.aspx" />
     <Content Include="app\update-assign.aspx" />
-    <Content Include="app\update-department.aspx" />
     <Content Include="Link\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
     <Content Include="Link\bower_components\bootstrap-colorpicker\dist\js\bootstrap-colorpicker.min.js" />
     <Content Include="Link\bower_components\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
@@ -377,13 +375,6 @@
     <Compile Include="app\coordinator-list.aspx.designer.cs">
       <DependentUpon>coordinator-list.aspx</DependentUpon>
     </Compile>
-    <Compile Include="app\department-list.aspx.cs">
-      <DependentUpon>department-list.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="app\department-list.aspx.designer.cs">
-      <DependentUpon>department-list.aspx</DependentUpon>
-    </Compile>
     <Compile Include="app\profile.aspx.cs">
       <DependentUpon>profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -425,13 +416,6 @@
     </Compile>
     <Compile Include="app\update-assign.aspx.designer.cs">
       <DependentUpon>update-assign.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="app\update-department.aspx.cs">
-      <DependentUpon>update-department.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="app\update-department.aspx.designer.cs">
-      <DependentUpon>update-department.aspx</DependentUpon>
     </Compile>
     <Compile Include="root.Master.cs">
       <DependentUpon>root.Master</DependentUpon>

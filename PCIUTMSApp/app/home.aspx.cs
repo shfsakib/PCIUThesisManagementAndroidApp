@@ -22,16 +22,15 @@ namespace PCIUTMSApp.app
                 func.CheckCookies();
                 lblStudent.Text = func.IsExist("SELECT COUNT(Name) FROM Registration WHERE Type='Student'");
                 lblTeacher.Text = func.IsExist("SELECT COUNT(Name) FROM Registration WHERE Type='Teacher'");
-                lblApplication.Text = func.IsExist("SELECT COUNT(StudentId) FROM Application WHERE Status='A'");
+                lblApplication.Text = func.IsExist("SELECT COUNT(RegistrationId) FROM Application WHERE Status='A'");
                 Load();
             }
         }
         private void Load()
         {
-            func.LoadGrid(gridTeacher, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,  Registration.Type, Registration.Picture, Registration.Designation, 
-                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
-FROM            Registration INNER JOIN
-                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='{ddlType.SelectedItem.ToString()}' AND Registration.Status='W' ORDER BY Registration.RegistrationId ASC");
+            func.LoadGrid(gridTeacher, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,  Registration.Type, Registration.Picture, Registration.Designation,  Registration.Department,
+                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Status, Registration.InTime
+FROM            Registration  WHERE Registration.Type='{ddlType.SelectedItem.ToString()}' AND Registration.Status='W' ORDER BY Registration.RegistrationId ASC");
         }
         protected void ddlType_OnSelectedIndexChanged(object sender, EventArgs e)
         {
@@ -41,14 +40,13 @@ FROM            Registration INNER JOIN
             }
             else if (ddlType.Text == "Student")
             {
-                func.LoadGrid(gridTeacher, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,  Registration.Type, Registration.Picture, Registration.Designation, 
-                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
-FROM            Registration INNER JOIN
-                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='{ddlType.SelectedItem.ToString()}' AND Registration.Status='W' ORDER BY Registration.RegistrationId ASC");
+                func.LoadGrid(gridTeacher, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,  Registration.Type, Registration.Picture, Registration.Designation,  Registration.Department,
+                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Status, Registration.InTime
+FROM            Registration WHERE Registration.Type='{ddlType.SelectedItem.ToString()}' AND Registration.Status='W' ORDER BY Registration.RegistrationId ASC");
             }
             else if (ddlType.Text == "Coordinator")
             {
-                func.LoadGrid(gridTeacher, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,  Registration.Type, Registration.Picture, Registration.Designation, 
+                func.LoadGrid(gridTeacher, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,  Registration.Type, Registration.Picture, Registration.Designation,  Registration.Department,
                          Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Status, '' AS Department, Registration.InTime
 FROM            Registration WHERE Registration.Type='{ddlType.SelectedItem.ToString()}' AND Registration.Status='W' ORDER BY Registration.RegistrationId ASC");
             }

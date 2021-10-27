@@ -24,9 +24,9 @@ namespace PCIUTMSApp.app
                     Response.Redirect("/log-in.aspx");
                 }
                 func.BindDropDown(ddlTeacher, "Select Supervisor", $@"SELECT NAME+' | '+IdNo Name,RegistrationId Id FROM Registration WHERE Type='Teacher' ORDER BY Name ASC");
-                func.BindDropDown(ddlStudent, "Select Student", $@"SELECT        Application.StudentId ID, Registration.Name +' | '+ Registration.Email NAME
+                func.BindDropDown(ddlStudent, "Select Student", $@"SELECT        Application.RegistrationId ID, Registration.Name +' | '+ Registration.Email NAME
 FROM            Application INNER JOIN
-                         Registration ON Application.StudentId = Registration.RegistrationId WHERE Application.Status='A' AND  Registration.Type='Student' ORDER BY Name ASC");
+                         Registration ON Application.RegistrationId = Registration.RegistrationId WHERE Application.Status='A' AND  Registration.Type='Student' ORDER BY Name ASC");
                 Load();
             }
         }
@@ -34,7 +34,7 @@ FROM            Application INNER JOIN
         private void Load()
         {
             ddlStudent.SelectedValue =
-                func.IsExist($@"SELECT StudentId From AssignSupervisor WHERE AssignId='{Request.QueryString["id"]}'");
+                func.IsExist($@"SELECT RegistrationId From AssignSupervisor WHERE AssignId='{Request.QueryString["id"]}'");
             ddlTeacher.SelectedValue =
                 func.IsExist($@"SELECT SupervisorId From AssignSupervisor WHERE AssignId='{Request.QueryString["id"]}'");
 
@@ -55,7 +55,7 @@ FROM            Application INNER JOIN
                 string id = Request.QueryString["id"];
                 bool ans =
                     func.Execute(
-                        $@"UPDATE AssignSupervisor SET SupervisorId='{ddlTeacher.SelectedValue}',StudentId='{ddlStudent.SelectedValue}' WHERE AssignId='{id}'");
+                        $@"UPDATE AssignSupervisor SET SupervisorId='{ddlTeacher.SelectedValue}',RegistrationId='{ddlStudent.SelectedValue}' WHERE AssignId='{id}'");
                 if (ans)
                 {
                     func.AlertWithRedirect(this, "Updated successfully", "/app/assign-supervisor.aspx");

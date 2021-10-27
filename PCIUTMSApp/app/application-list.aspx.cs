@@ -26,7 +26,7 @@ namespace PCIUTMSApp.app
 
         private void Load()
         {
-            func.LoadGrid(gridApplication, $"SELECT * FROM APplication WHERE StudentId='{func.UserIdCookie()}'");
+            func.LoadGrid(gridApplication, $"SELECT * FROM APplication WHERE RegistrationId='{func.UserIdCookie()}'");
         }
         protected void gridCoordinate_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {

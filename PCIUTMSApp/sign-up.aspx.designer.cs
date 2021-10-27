@@ -67,15 +67,6 @@ namespace PCIUTMSApp {
         protected global::System.Web.UI.WebControls.Panel teacherPanel;
         
         /// <summary>
-        /// ddlDepartment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
-        
-        /// <summary>
         /// txtDesignation control.
         /// </summary>
         /// <remarks>
@@ -119,15 +110,6 @@ namespace PCIUTMSApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel studentPanel;
-        
-        /// <summary>
-        /// ddlStudentDepartment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStudentDepartment;
         
         /// <summary>
         /// txtStdntId control.

@@ -66,12 +66,12 @@
                                 </div>
                                 <asp:Panel ID="teacherPanel" Visible="False" runat="server">
                                     <div class="row">
-                                        <div class="col-12">
+                                        <%--<div class="col-12">
                                             <label class="label">Department</label>
                                             <asp:DropDownList ID="ddlDepartment" class="form-control w-100" runat="server">
                                                 <asp:ListItem>Select</asp:ListItem>
                                             </asp:DropDownList>
-                                        </div>
+                                        </div>--%>
                                         <div class="col-12">
                                             <label class="label">Designation</label>
                                             <asp:TextBox ID="txtDesignation" runat="server" autocomplete="off" class="form-control w-100" placeholder="Lecturer, Sr. Lecturer"></asp:TextBox>
@@ -98,12 +98,12 @@
                                 </asp:Panel>
                                 <asp:Panel ID="studentPanel" Visible="False" runat="server">
                                     <div class="row">
-                                        <div class="col-12">
+                                       <%-- <div class="col-12">
                                             <label class="label">Department</label>
                                             <asp:DropDownList ID="ddlStudentDepartment" class="form-control w-100 select2" runat="server">
                                                 <asp:ListItem>Select</asp:ListItem>
                                             </asp:DropDownList>
-                                        </div>
+                                        </div>--%>
                                         <div class="col-12">
                                             <label class="label">Id No.</label>
                                             <asp:TextBox ID="txtStdntId" runat="server" autocomplete="off" class="form-control w-100" placeholder="XXX XXX XXX"></asp:TextBox>

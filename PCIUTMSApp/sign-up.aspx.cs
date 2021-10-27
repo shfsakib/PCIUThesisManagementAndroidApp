@@ -20,15 +20,9 @@ namespace PCIUTMSApp
             if (!IsPostBack)
             {
                 txtName.Focus();
-                LoadDropdown();
             }
         }
-        private void LoadDropdown()
-        {
-            func.BindDropDown(ddlDepartment, "Select", $"SELECT DepartmentId Id,DepartmentName Name FROM DepartmentInfo ORDER BY DepartmentName ASC");
-            func.BindDropDown(ddlStudentDepartment, "Select", $"SELECT DepartmentId Id,DepartmentName Name FROM DepartmentInfo ORDER BY DepartmentName ASC");
 
-        }
         private bool IsEmail(string email)
         {
             bool a = false;
@@ -105,11 +99,7 @@ namespace PCIUTMSApp
 
                 if (ddlType.Text == "Teacher")
                 {
-                    if (ddlDepartment.SelectedIndex == -1)
-                    {
-                        func.PopAlert(this, "Department is required");
-                    }
-                    else if (IsId(txtTeacherId.Text))
+                    if (IsId(txtTeacherId.Text))
                     {
                         func.PopAlert(this, "Teacher id is required");
 
@@ -117,9 +107,9 @@ namespace PCIUTMSApp
                     else
                     {
                         a = func.Execute(
-                            $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink,Program) VALUES('{
+                            $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,Department,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink,Program) VALUES('{
                                 ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{
-                                ddlType.SelectedItem.ToString()}','{pic}','{ddlDepartment.SelectedValue}','{
+                                ddlType.SelectedItem.ToString()}','{pic}','CSE','{
                                 txtDesignation.Text}','{txtTimeFrom.Text}','{txtTimeTo.Text}','{txtTeacherId.Text}','{
                                 txtPass.Text}','W','{func.Date()}','','')");
                         if (a)
@@ -137,11 +127,7 @@ namespace PCIUTMSApp
                 }
                 else if (ddlType.Text == "Student")
                 {
-                    if (ddlStudentDepartment.SelectedIndex == -1)
-                    {
-                        func.PopAlert(this, "Department is required");
-                    }
-                    else if (IsId(txtStdntId.Text))
+                    if (IsId(txtStdntId.Text))
                     {
                         func.PopAlert(this, "Student id is required");
                     }
@@ -152,7 +138,7 @@ namespace PCIUTMSApp
                     else
                     {
                         a = func.Execute(
-                            $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink,Program) VALUES('{ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{ddlType.SelectedItem.ToString()}','{pic}','{ddlStudentDepartment.SelectedValue}','','','','{txtStdntId.Text}','{txtPass.Text}','W','{func.Date()}','','{ddlProgram.SelectedValue}')");
+                            $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,Department,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink,Program) VALUES('{ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{ddlType.SelectedItem.ToString()}','{pic}','CSE','','','','{txtStdntId.Text}','{txtPass.Text}','W','{func.Date()}','','{ddlProgram.SelectedValue}')");
                         if (a)
                         {
                             func.AlertWithRedirect(this, "Registered successfully, Please wait for account approval by admin", "/log-in.aspx");
@@ -173,7 +159,7 @@ namespace PCIUTMSApp
                     else
                     {
                         a = func.Execute(
-                            $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,DepartmentId,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink,Program) VALUES('{
+                            $@"INSERT INTO Registration(RegistrationId,Name,Email,MobileNo,Type,Picture,Department,Designation,FreeScheduleFrom,FreeScheduleTo,IdNo,Password,Status,InTime,GroupLink,Program) VALUES('{
                                 ViewState["RegId"]}','{txtName.Text}','{txtEmail.Text}','{txtMobile.Text}','{
                                 ddlType.SelectedItem.ToString()}','{pic}','','{txtDesignation.Text}','','','{
                                 txtCOId.Text}','{txtPass.Text}','W','{func.Date()}','','')");
@@ -200,14 +186,14 @@ namespace PCIUTMSApp
                 teacherPanel.Visible = true;
                 studentPanel.Visible = false;
                 coordinatePanel.Visible = false;
-                ddlDepartment.Focus();
+
             }
             else if (ddlType.Text == "Student")
             {
                 teacherPanel.Visible = false;
                 studentPanel.Visible = true;
                 coordinatePanel.Visible = false;
-                ddlStudentDepartment.Focus();
+
 
             }
             else if (ddlType.Text == "Coordinator")
@@ -234,8 +220,8 @@ namespace PCIUTMSApp
                                     txtDesignation.Text =
                                         txtTimeFrom.Text =
                                             txtTimeTo.Text = txtStdntId.Text = txtCOId.Text = txtCoDesignation.Text = "";
-            ddlType.SelectedIndex =
-                ddlDepartment.SelectedIndex = ddlStudentDepartment.SelectedIndex = -1;
+            ddlType.SelectedIndex = -1;
+
         }
     }
 }

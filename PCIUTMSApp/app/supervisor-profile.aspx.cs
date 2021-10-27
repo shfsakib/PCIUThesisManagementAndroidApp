@@ -26,7 +26,7 @@ namespace PCIUTMSApp.app
         private void Load()
         {
             string supervisorId =
-                func.IsExist($@"SELECT SupervisorId From AssignSupervisor WHERE StudentId='{func.UserIdCookie()}'");
+                func.IsExist($@"SELECT SupervisorId From AssignSupervisor WHERE RegistrationId='{func.UserIdCookie()}'");
             if (supervisorId != "")
             {
                 profileImage.ImageUrl =

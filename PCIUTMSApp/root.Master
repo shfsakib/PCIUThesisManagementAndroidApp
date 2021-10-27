@@ -210,11 +210,11 @@
                                 <i class="fa fa-home"></i><span>&nbsp;&nbsp;Dashboard</span>
                             </a>
                         </li>
-                        <li>
+                       <%-- <li>
                             <a href="/app/department-list.aspx">
                                 <i class="fa fa-building"></i><span>&nbsp;&nbsp;Department List</span>
                             </a>
-                        </li>
+                        </li>--%>
                         <li>
                             <a href="/app/student-list.aspx">
                                 <i class="fas fa-user-graduate"></i><span>&nbsp;&nbsp;Student List</span>

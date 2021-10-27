@@ -19,9 +19,9 @@ namespace PCIUTMSApp.app
         {
             if (!IsPostBack)
             {
-                func.BindDropDown(ddlStudent, "Select Student", $@"SELECT  AssignSupervisor.StudentId Id,  Registration.Name +' | '+ Registration.Email NAME
+                func.BindDropDown(ddlStudent, "Select Student", $@"SELECT  AssignSupervisor.RegistrationId Id,  Registration.Name +' | '+ Registration.Email NAME
 FROM            AssignSupervisor INNER JOIN
-                         Registration ON AssignSupervisor.StudentId = Registration.RegistrationId WHERE Registration.Type='Student' AND AssignSupervisor.SupervisorId='{func.UserIdCookie()}' ORDER BY AssignSupervisor.StudentId DESC");
+                         Registration ON AssignSupervisor.RegistrationId = Registration.RegistrationId WHERE Registration.Type='Student' AND AssignSupervisor.SupervisorId='{func.UserIdCookie()}' ORDER BY AssignSupervisor.RegistrationId DESC");
                 Load();
             }
         }
@@ -38,19 +38,19 @@ FROM            AssignSupervisor INNER JOIN
         }
         private new void Load()
         {
-            func.LoadGrid(gridAssign, $@"SELECT        AssignSupervisor.AssignId, AssignSupervisor.SupervisorId, AssignSupervisor.StudentId, AssignSupervisor.Status, AssignSupervisor.AssignTime, Registration.Name AS StudentName, Registration.Email, Registration.MobileNo, 
+            func.LoadGrid(gridAssign, $@"SELECT        AssignSupervisor.AssignId, AssignSupervisor.SupervisorId, AssignSupervisor.RegistrationId, AssignSupervisor.Status, AssignSupervisor.AssignTime, Registration.Name AS StudentName, Registration.Email, Registration.MobileNo, 
                          Registration.IdNo AS StuId,Registration.Picture
 FROM            AssignSupervisor INNER JOIN
-                         Registration ON AssignSupervisor.StudentId = Registration.RegistrationId WHERE AssignSupervisor.SupervisorId='{func.UserIdCookie()}' ORDER BY Registration.IdNo DESC");
+                         Registration ON AssignSupervisor.RegistrationId = Registration.RegistrationId WHERE AssignSupervisor.SupervisorId='{func.UserIdCookie()}' ORDER BY Registration.IdNo DESC");
         }
         protected void ddlStudent_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlStudent.SelectedIndex<-0)
             {
-                func.LoadGrid(gridAssign, $@"SELECT        AssignSupervisor.AssignId, AssignSupervisor.SupervisorId, AssignSupervisor.StudentId, AssignSupervisor.Status, AssignSupervisor.AssignTime, Registration.Name AS StudentName, Registration.Email, Registration.MobileNo, 
-                         Registration.IdNo AS StudentId
+                func.LoadGrid(gridAssign, $@"SELECT        AssignSupervisor.AssignId, AssignSupervisor.SupervisorId, AssignSupervisor.RegistrationId, AssignSupervisor.Status, AssignSupervisor.AssignTime, Registration.Name AS StudentName, Registration.Email, Registration.MobileNo, 
+                         Registration.IdNo AS RegistrationId
 FROM            AssignSupervisor INNER JOIN
-                         Registration ON AssignSupervisor.StudentId = Registration.RegistrationId WHERE AssignSupervisor.SupervisorId='{func.UserIdCookie()}' AND AssignSupervisor.StudentId='{ddlStudent.SelectedValue}' ORDER BY Registration.IdNo DESC");
+                         Registration ON AssignSupervisor.RegistrationId = Registration.RegistrationId WHERE AssignSupervisor.SupervisorId='{func.UserIdCookie()}' AND AssignSupervisor.RegistrationId='{ddlStudent.SelectedValue}' ORDER BY Registration.IdNo DESC");
             }
             else
             {

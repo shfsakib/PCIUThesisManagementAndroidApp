@@ -62,9 +62,7 @@
             <div class="col-xs-4">Department :</div>
             <div class="col-xs-8">
                 <asp:Label ID="lblDepartment" runat="server" Text=""></asp:Label>
-                <asp:DropDownList ID="ddlDepartment" Visible="False" class="form-control w-100" runat="server">
-                    <asp:ListItem>Select</asp:ListItem>
-                </asp:DropDownList>
+                
             </div>
         </div>
         <% } %>

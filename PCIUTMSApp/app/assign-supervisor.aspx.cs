@@ -20,9 +20,9 @@ namespace PCIUTMSApp.app
             if (!IsPostBack)
             {
                 func.BindDropDown(ddlTeacher, "Select Supervisor", $@"SELECT NAME+' | '+IdNo Name,RegistrationId Id FROM Registration WHERE Type='Teacher' ORDER BY Name ASC");
-                func.BindDropDown(ddlStudent, "Select Student", $@"SELECT        Application.StudentId ID, Registration.Name +' | '+ Registration.Email NAME
+                func.BindDropDown(ddlStudent, "Select Student", $@"SELECT        Application.RegistrationId ID, Registration.Name +' | '+ Registration.Email NAME
 FROM            Application INNER JOIN
-                         Registration ON Application.StudentId = Registration.RegistrationId WHERE Application.Status='A' AND  Registration.Type='Student' ORDER BY Name ASC");
+                         Registration ON Application.RegistrationId = Registration.RegistrationId WHERE Application.Status='A' AND  Registration.Type='Student' ORDER BY Name ASC");
                 func.BindDropDown(ddlSearch, "Search By Student", $@"SELECT NAME+' | '+IdNo Name,RegistrationId Id FROM Registration WHERE Type='Student' ORDER BY Name ASC");
                 Load();
             }
@@ -30,17 +30,17 @@ FROM            Application INNER JOIN
 
         private void Load()
         {
-            func.LoadGrid(gridAssign, $@"SELECT        AssignSupervisor.AssignId, AssignSupervisor.SupervisorId, AssignSupervisor.StudentId, AssignSupervisor.Status, AssignSupervisor.AssignTime, Registration.Name AS SupervisorName, Registration.IdNo AS SupId, 
+            func.LoadGrid(gridAssign, $@"SELECT        AssignSupervisor.AssignId, AssignSupervisor.SupervisorId, AssignSupervisor.RegistrationId, AssignSupervisor.Status, AssignSupervisor.AssignTime, Registration.Name AS SupervisorName, Registration.IdNo AS SupId, 
                          Registration_1.Name AS StudentName, Registration_1.IdNo AS StuId
 FROM            AssignSupervisor INNER JOIN
                          Registration ON AssignSupervisor.SupervisorId = Registration.RegistrationId INNER JOIN
-                         Registration AS Registration_1 ON AssignSupervisor.StudentId = Registration_1.RegistrationId ORDER BY AssignSupervisor.AssignTime DESC");
+                         Registration AS Registration_1 ON AssignSupervisor.RegistrationId = Registration_1.RegistrationId ORDER BY AssignSupervisor.AssignTime DESC");
         }
 
-        private bool IsStudentExist(string studentId)
+        private bool IsStudentExist(string RegistrationId)
         {
             bool ans = false;
-            string x = func.IsExist($@"SELECT StudentId From AssignSupervisor WHERE StudentId='{studentId}'");
+            string x = func.IsExist($@"SELECT RegistrationId From AssignSupervisor WHERE RegistrationId='{RegistrationId}'");
             if (x != "")
             {
                 ans = true;
@@ -65,7 +65,7 @@ FROM            AssignSupervisor INNER JOIN
             {
                 bool ans =
                     func.Execute(
-                        $@"INSERT INTO AssignSupervisor(SupervisorId,StudentId,Status,AssignTime) VALUES('{ddlTeacher.SelectedValue}','{ddlStudent.SelectedValue}','A','{func.Date()}')");
+                        $@"INSERT INTO AssignSupervisor(SupervisorId,RegistrationId,Status,AssignTime) VALUES('{ddlTeacher.SelectedValue}','{ddlStudent.SelectedValue}','A','{func.Date()}')");
                 if (ans)
                 {
                     func.PopAlert(this, "Supervisor assigned successfully");
@@ -112,11 +112,11 @@ FROM            AssignSupervisor INNER JOIN
         {
             if (ddlSearch.SelectedIndex != -1)
             {
-                func.LoadGrid(gridAssign, $@"SELECT        AssignSupervisor.AssignId, AssignSupervisor.SupervisorId, AssignSupervisor.StudentId, AssignSupervisor.Status, AssignSupervisor.AssignTime, Registration.Name AS SupervisorName, Registration.IdNo AS SupId, 
+                func.LoadGrid(gridAssign, $@"SELECT        AssignSupervisor.AssignId, AssignSupervisor.SupervisorId, AssignSupervisor.RegistrationId, AssignSupervisor.Status, AssignSupervisor.AssignTime, Registration.Name AS SupervisorName, Registration.IdNo AS SupId, 
                          Registration_1.Name AS StudentName, Registration_1.IdNo AS StuId
 FROM            AssignSupervisor INNER JOIN
                          Registration ON AssignSupervisor.SupervisorId = Registration.RegistrationId INNER JOIN
-                         Registration AS Registration_1 ON AssignSupervisor.StudentId = Registration_1.RegistrationId WHERE AssignSupervisor.StudentId='{ddlSearch.SelectedValue}' ORDER BY AssignSupervisor.AssignTime DESC");
+                         Registration AS Registration_1 ON AssignSupervisor.RegistrationId = Registration_1.RegistrationId WHERE AssignSupervisor.RegistrationId='{ddlSearch.SelectedValue}' ORDER BY AssignSupervisor.AssignTime DESC");
 
             }
             else

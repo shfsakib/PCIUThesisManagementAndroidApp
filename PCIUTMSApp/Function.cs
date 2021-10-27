@@ -324,7 +324,7 @@ namespace PCIUTMSApp
             }
             catch (Exception ex)
             {
-                return false;
+                return true;
             }
         }
         public string CheckPassword(string pass)

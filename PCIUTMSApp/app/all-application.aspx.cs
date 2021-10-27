@@ -25,12 +25,12 @@ namespace PCIUTMSApp.app
         }
         private void Load()
         {
-            func.LoadGrid(gridApplication, $@"SELECT        Application.ApplicationId, Application.Program, Application.Type, Application.Status, Application.StudentId, Application.ApplicationText, Application.ApplicationTime, Registration.Name, Registration.IdNo
+            func.LoadGrid(gridApplication, $@"SELECT        Application.ApplicationId, Application.Program, Application.Type, Application.Status, Application.RegistrationId, Application.ApplicationText, Application.ApplicationTime, Registration.Name, Registration.IdNo
 FROM            Application INNER JOIN
-                         Registration ON Application.StudentId = Registration.RegistrationId WHERE Application.Status='{ddlStatus.SelectedValue}' AND Application.Program='{ddlProgram.SelectedValue}' AND Application.Type='{ddlType.SelectedValue}' ORDER BY ApplicationId ASC");
-            func.BindDropDown(ddlStudent, "Search Student", $@"SELECT    TOP 1000    Application.StudentId Id, Registration.Name +' | '+ Registration.IdNo NAME
+                         Registration ON Application.RegistrationId = Registration.RegistrationId WHERE Application.Status='{ddlStatus.SelectedValue}' AND Application.Program='{ddlProgram.SelectedValue}' AND Application.Type='{ddlType.SelectedValue}' ORDER BY ApplicationId ASC");
+            func.BindDropDown(ddlStudent, "Search Student", $@"SELECT    TOP 1000    Application.RegistrationId Id, Registration.Name +' | '+ Registration.IdNo NAME
 FROM            Application INNER JOIN
-                         Registration ON Application.StudentId = Registration.RegistrationId WHERE Application.Status='{ddlStatus.SelectedValue}' AND Application.Program='{ddlProgram.SelectedValue}' AND Application.Type='{ddlType.SelectedValue}' ORDER BY Id DESC");
+                         Registration ON Application.RegistrationId = Registration.RegistrationId WHERE Application.Status='{ddlStatus.SelectedValue}' AND Application.Program='{ddlProgram.SelectedValue}' AND Application.Type='{ddlType.SelectedValue}' ORDER BY Id DESC");
         }
         protected void gridApplication_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -126,9 +126,9 @@ FROM            Application INNER JOIN
         {
             if (ddlStudent.SelectedIndex != -1)
             {
-                func.LoadGrid(gridApplication, $@"SELECT        Application.ApplicationId, Application.Program, Application.Type, Application.Status, Application.StudentId, Application.ApplicationText, Application.ApplicationTime, Registration.Name, Registration.IdNo
+                func.LoadGrid(gridApplication, $@"SELECT        Application.ApplicationId, Application.Program, Application.Type, Application.Status, Application.RegistrationId, Application.ApplicationText, Application.ApplicationTime, Registration.Name, Registration.IdNo
 FROM            Application INNER JOIN
-                         Registration ON Application.StudentId = Registration.RegistrationId WHERE Application.StudentId='{ddlStudent.SelectedValue}' AND Application.Status='{ddlStatus.SelectedValue}' AND Application.Program='{ddlProgram.SelectedValue}' AND Application.Type='{ddlType.SelectedValue}' ORDER BY ApplicationId ASC");
+                         Registration ON Application.RegistrationId = Registration.RegistrationId WHERE Application.RegistrationId='{ddlStudent.SelectedValue}' AND Application.Status='{ddlStatus.SelectedValue}' AND Application.Program='{ddlProgram.SelectedValue}' AND Application.Type='{ddlType.SelectedValue}' ORDER BY ApplicationId ASC");
             }
             else
             {

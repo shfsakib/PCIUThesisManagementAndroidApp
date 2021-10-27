@@ -25,8 +25,7 @@ namespace PCIUTMSApp.app
 
         private void Load()
         {
-            func.BindDropDown(ddlDepartment, "Select", $"SELECT DepartmentId Id,DepartmentName Name FROM DepartmentInfo ORDER BY DepartmentName ASC");
-
+            
             ViewState["picture"] =
                   func.IsExist($@"SELECT Picture FROM Registration WHERE RegistrationId='{func.UserIdCookie()}'");
             profileImage.ImageUrl = ViewState["picture"].ToString();
@@ -39,12 +38,8 @@ namespace PCIUTMSApp.app
             if (func.TypeCookie() != "Coordinator")
             {
                 lblDepartment.Text =
-                     func.IsExist($@"SELECT        DepartmentInfo.DepartmentName
-FROM            Registration INNER JOIN
-                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.RegistrationId='{func.UserIdCookie()}'");
-                ddlDepartment.SelectedValue =
-                  func.IsExist($@"SELECT DepartmentId FROM Registration WHERE RegistrationId='{func.UserIdCookie()}'");
-
+                     func.IsExist($@"SELECT Department FROM Registration WHERE RegistrationId='{func.UserIdCookie()}'");
+                
             }
             if (func.TypeCookie().ToString() == "Teacher")
             {
@@ -93,7 +88,7 @@ FROM            Registration INNER JOIN
         {
             if (func.TypeCookie() == "Student")
             {
-                bool ans = func.Execute($@"UPDATE Registration SET Name='{txtName.Text}',Email='{txtEmail.Text}',MobileNo='{txtMobile.Text}',Picture='{ViewState["picture"]}',DepartmentId='{ddlDepartment.SelectedValue}',IdNo='{txtId.Text}',Password='{txtPass.Text}',Program='{ddlProgram.SelectedValue}' WHERE RegistrationId='{func.UserIdCookie()}'");
+                bool ans = func.Execute($@"UPDATE Registration SET Name='{txtName.Text}',Email='{txtEmail.Text}',MobileNo='{txtMobile.Text}',Picture='{ViewState["picture"]}',IdNo='{txtId.Text}',Password='{txtPass.Text}',Program='{ddlProgram.SelectedValue}' WHERE RegistrationId='{func.UserIdCookie()}'");
                 if (ans)
                 {
                     func.Logout();
@@ -105,7 +100,7 @@ FROM            Registration INNER JOIN
             }
             else if (func.TypeCookie() == "Teacher")
             {
-                bool ans = func.Execute($@"UPDATE Registration SET Name='{txtName.Text}',Email='{txtEmail.Text}',MobileNo='{txtMobile.Text}',Picture='{ViewState["picture"]}',DepartmentId='{ddlDepartment.SelectedValue}',Designation='{txtDesignation.Text}',FreeScheduleFrom='{txtTimeFrom.Text}',FreeScheduleTo='{txtTimeTo.Text}',IdNo='{txtId.Text}',Password='{txtPass.Text}',GroupLink='{txtGroupLink.Text}',Program='{ddlProgram.SelectedValue}' WHERE RegistrationId='{func.UserIdCookie()}'");
+                bool ans = func.Execute($@"UPDATE Registration SET Name='{txtName.Text}',Email='{txtEmail.Text}',MobileNo='{txtMobile.Text}',Picture='{ViewState["picture"]}',Designation='{txtDesignation.Text}',FreeScheduleFrom='{txtTimeFrom.Text}',FreeScheduleTo='{txtTimeTo.Text}',IdNo='{txtId.Text}',Password='{txtPass.Text}',GroupLink='{txtGroupLink.Text}',Program='{ddlProgram.SelectedValue}' WHERE RegistrationId='{func.UserIdCookie()}'");
                 if (ans)
                 {
                     func.Logout();
@@ -136,13 +131,13 @@ FROM            Registration INNER JOIN
         }
         private new void VisibleTeacher(bool label, bool tools)
         {
-            nameLabel.Visible = lblMobile.Visible = lblIdNo.Visible = lblEmail.Visible = lblPass.Visible = btnEdit.Visible = lblDepartment.Visible = lblDesignation.Visible = lblGroupLink.Visible = lblSchedule.Visible = label;
-            fileProfile.Visible = txtName.Visible = txtEmail.Visible = txtMobile.Visible = txtId.Visible = txtPass.Visible = lnkUpdate.Visible = ddlDepartment.Visible = txtDesignation.Visible = txtGroupLink.Visible = txtTimeFrom.Visible = txtTimeTo.Visible = tools;
+            nameLabel.Visible = lblMobile.Visible = lblIdNo.Visible = lblEmail.Visible = lblPass.Visible = btnEdit.Visible =  lblDesignation.Visible = lblGroupLink.Visible = lblSchedule.Visible = label;
+            fileProfile.Visible = txtName.Visible = txtEmail.Visible = txtMobile.Visible = txtId.Visible = txtPass.Visible = lnkUpdate.Visible =  txtDesignation.Visible = txtGroupLink.Visible = txtTimeFrom.Visible = txtTimeTo.Visible = tools;
         }
         private new void VisibleStudent(bool label, bool tools)
         {
-            nameLabel.Visible = lblMobile.Visible = lblEmail.Visible = lblIdNo.Visible = lblPass.Visible = btnEdit.Visible = lblDepartment.Visible = lblProgram.Visible = label;
-            fileProfile.Visible = txtName.Visible = txtEmail.Visible = txtMobile.Visible = txtId.Visible = txtPass.Visible = lnkUpdate.Visible = ddlDepartment.Visible = ddlProgram.Visible = tools;
+            nameLabel.Visible = lblMobile.Visible = lblEmail.Visible = lblIdNo.Visible = lblPass.Visible = btnEdit.Visible =  lblProgram.Visible = label;
+            fileProfile.Visible = txtName.Visible = txtEmail.Visible = txtMobile.Visible = txtId.Visible = txtPass.Visible = lnkUpdate.Visible = ddlProgram.Visible = tools;
         }
     }
 }

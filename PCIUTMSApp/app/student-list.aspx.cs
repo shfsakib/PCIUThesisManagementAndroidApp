@@ -24,10 +24,9 @@ namespace PCIUTMSApp.app
         }
         private void Load()
         {
-            func.LoadGrid(gridStudent, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,  Registration.Type, Registration.Picture, Registration.Designation, 
-                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
-FROM            Registration INNER JOIN
-                         DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Student' AND Registration.Status='{ddlType.SelectedValue}' ORDER BY Registration.RegistrationId ASC");
+            func.LoadGrid(gridStudent, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,  Registration.Type, Registration.Picture, Registration.Designation, Registration.Department,
+                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Status, Registration.InTime
+FROM            Registration WHERE Registration.Type='Student' AND Registration.Status='{ddlType.SelectedValue}' ORDER BY Registration.RegistrationId ASC");
             func.BindDropDown(ddlStudent, "Search Student", $@"SELECT Name,RegistrationId Id FROM Registration WHERE Status='{ddlType.SelectedValue}' AND Type='Student' ORDER BY Name ASC");
 
         }
@@ -42,7 +41,7 @@ FROM            Registration INNER JOIN
             if (ddlStudent.SelectedIndex != -1)
             {
                 func.LoadGrid(gridStudent, $@"SELECT        Registration.RegistrationId, Registration.Name, Registration.Email, Registration.MobileNo,  Registration.Type, Registration.Picture, Registration.Designation, 
-                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Status, Registration.InTime, DepartmentInfo.DepartmentName AS Department
+                         Registration.FreeScheduleFrom, Registration.FreeScheduleTo, Registration.IdNo, Registration.Status, Registration.InTime
 FROM            Registration INNER JOIN
                          DepartmentInfo ON Registration.DepartmentId = DepartmentInfo.DepartmentId WHERE Registration.Type='Student' AND Registration.Status='{ddlType.SelectedValue}' AND registration.registrationid='{ddlStudent.SelectedValue}' ORDER BY Registration.RegistrationId ASC");
 

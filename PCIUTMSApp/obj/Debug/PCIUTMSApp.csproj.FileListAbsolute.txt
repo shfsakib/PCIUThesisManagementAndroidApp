@@ -63,3 +63,4 @@ D:\Git\PCIUThesisManagementAndroidApp\PCIUTMSApp\bin\Microsoft.ApplicationInsigh
 D:\Git\PCIUThesisManagementAndroidApp\PCIUTMSApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\Git\PCIUThesisManagementAndroidApp\PCIUTMSApp\obj\Debug\PCIUTMSApp.dll
 D:\Git\PCIUThesisManagementAndroidApp\PCIUTMSApp\obj\Debug\PCIUTMSApp.pdb
+D:\Git\PCIUThesisManagementAndroidApp\PCIUTMSApp\obj\Debug\PCIUTMSApp.csprojResolveAssemblyReference.cache
