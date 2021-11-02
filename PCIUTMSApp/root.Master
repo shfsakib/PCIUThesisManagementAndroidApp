@@ -131,7 +131,7 @@
                             <img src='<%=GetImage(cookie["Picture"].ToString()) %>' class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
-                            <p><%=cookie["Name"].ToString()%></p>
+                            <p style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><%=cookie["Name"].ToString()%></p>
                             <p><%=cookie["Type"].ToString()%></p>
                         </div>
                     </div>
@@ -172,6 +172,21 @@
                                 <i class="fa fa-user-tie"></i><span>&nbsp;&nbsp;Supervisor Profile</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="/app/examiner-profile.aspx">
+                                <i class="fa fa-user-graduate"></i><span>&nbsp;&nbsp;Examiner Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/send-progress.aspx">
+                                <i class="fa fa-paper-plane"></i><span>&nbsp;&nbsp;Send Progress</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/notice.aspx">
+                                <i class="fa fa-chalkboard"></i><span>&nbsp;&nbsp;Notice</span>
+                            </a>
+                        </li>
                     </ul>
                     <% }
                         else if (cookie["Type"] == "Teacher")
@@ -186,6 +201,16 @@
                         <li>
                             <a href="/app/assigned-student-list.aspx">
                                 <i class="fa fa-user-graduate"></i><span>&nbsp;&nbsp;Assigned Student</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/student-progress-report.aspx">
+                                <i class="fa fa-clipboard-list"></i><span>&nbsp;&nbsp;Student Progress Report</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/notice.aspx">
+                                <i class="fa fa-chalkboard"></i><span>&nbsp;&nbsp;Notice</span>
                             </a>
                         </li>
                     </ul>
@@ -210,7 +235,7 @@
                                 <i class="fa fa-home"></i><span>&nbsp;&nbsp;Dashboard</span>
                             </a>
                         </li>
-                       <%-- <li>
+                        <%-- <li>
                             <a href="/app/department-list.aspx">
                                 <i class="fa fa-building"></i><span>&nbsp;&nbsp;Department List</span>
                             </a>
@@ -238,6 +263,16 @@
                         <li>
                             <a href="/app/assign-supervisor.aspx">
                                 <i class="fa fa-book-reader"></i><span>&nbsp;&nbsp;Assign Supervisor</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/assign-examiner.aspx">
+                                <i class="fa fa-chalkboard-teacher"></i><span>&nbsp;&nbsp;Assign Examiner</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/notice-info.aspx">
+                                <i class="fa fa-chalkboard"></i><span>&nbsp;&nbsp;Notice</span>
                             </a>
                         </li>
                     </ul>

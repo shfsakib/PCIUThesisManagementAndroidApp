@@ -96,16 +96,23 @@
   <ItemGroup>
     <Content Include="app\all-application.aspx" />
     <Content Include="app\application-list.aspx" />
+    <Content Include="app\assign-examiner.aspx" />
     <Content Include="app\assign-supervisor.aspx" />
     <Content Include="app\assigned-student-list.aspx" />
     <Content Include="app\coordinator-list.aspx" />
+    <Content Include="app\examiner-profile.aspx" />
     <Content Include="app\home.aspx" />
+    <Content Include="app\notice-info.aspx" />
+    <Content Include="app\notice.aspx" />
     <Content Include="app\profile.aspx" />
     <Content Include="app\send-application.aspx" />
+    <Content Include="app\send-progress.aspx" />
     <Content Include="app\student-list.aspx" />
+    <Content Include="app\student-progress-report.aspx" />
     <Content Include="app\supervisor-profile.aspx" />
     <Content Include="app\teacher-list.aspx" />
     <Content Include="app\update-assign.aspx" />
+    <Content Include="app\update-examiner.aspx" />
     <Content Include="Link\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
     <Content Include="Link\bower_components\bootstrap-colorpicker\dist\js\bootstrap-colorpicker.min.js" />
     <Content Include="Link\bower_components\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
@@ -354,6 +361,13 @@
     <Compile Include="app\application-list.aspx.designer.cs">
       <DependentUpon>application-list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="app\assign-examiner.aspx.cs">
+      <DependentUpon>assign-examiner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\assign-examiner.aspx.designer.cs">
+      <DependentUpon>assign-examiner.aspx</DependentUpon>
+    </Compile>
     <Compile Include="app\assign-supervisor.aspx.cs">
       <DependentUpon>assign-supervisor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -375,6 +389,27 @@
     <Compile Include="app\coordinator-list.aspx.designer.cs">
       <DependentUpon>coordinator-list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="app\examiner-profile.aspx.cs">
+      <DependentUpon>examiner-profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\examiner-profile.aspx.designer.cs">
+      <DependentUpon>examiner-profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\notice-info.aspx.cs">
+      <DependentUpon>notice-info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\notice-info.aspx.designer.cs">
+      <DependentUpon>notice-info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\notice.aspx.cs">
+      <DependentUpon>notice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\notice.aspx.designer.cs">
+      <DependentUpon>notice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="app\profile.aspx.cs">
       <DependentUpon>profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -389,12 +424,26 @@
     <Compile Include="app\send-application.aspx.designer.cs">
       <DependentUpon>send-application.aspx</DependentUpon>
     </Compile>
+    <Compile Include="app\send-progress.aspx.cs">
+      <DependentUpon>send-progress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\send-progress.aspx.designer.cs">
+      <DependentUpon>send-progress.aspx</DependentUpon>
+    </Compile>
     <Compile Include="app\student-list.aspx.cs">
       <DependentUpon>student-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="app\student-list.aspx.designer.cs">
       <DependentUpon>student-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\student-progress-report.aspx.cs">
+      <DependentUpon>student-progress-report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\student-progress-report.aspx.designer.cs">
+      <DependentUpon>student-progress-report.aspx</DependentUpon>
     </Compile>
     <Compile Include="app\supervisor-profile.aspx.cs">
       <DependentUpon>supervisor-profile.aspx</DependentUpon>
@@ -416,6 +465,13 @@
     </Compile>
     <Compile Include="app\update-assign.aspx.designer.cs">
       <DependentUpon>update-assign.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\update-examiner.aspx.cs">
+      <DependentUpon>update-examiner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\update-examiner.aspx.designer.cs">
+      <DependentUpon>update-examiner.aspx</DependentUpon>
     </Compile>
     <Compile Include="root.Master.cs">
       <DependentUpon>root.Master</DependentUpon>
@@ -449,6 +505,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Attachment\" />
     <Folder Include="photos\" />
   </ItemGroup>
   <PropertyGroup>

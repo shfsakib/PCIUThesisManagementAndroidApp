@@ -42,7 +42,7 @@ namespace PCIUTMSApp.app
             }
             else
             {
-                func.PopAlert(this,"You are not assigned to any supervisor yet");
+                func.AlertWithRedirect(this,"You are not assigned to any supervisor yet","/log-in.aspx");
             }
         }
     }

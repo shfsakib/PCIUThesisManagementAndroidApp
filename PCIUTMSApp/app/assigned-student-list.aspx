@@ -3,14 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="col-md-12">
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Assigned Student List</h1>
-                    </div>
-                </div>
+    <div class="col-md-12 card card-body">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Assigned Student List</h1>
             </div>
         </div>
         <div class="row">
@@ -31,9 +27,9 @@
                                 <asp:Label ID="lblSId" runat="server" Text='<%#Eval("StuId")%>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                         <asp:TemplateField HeaderText="Picture">
+                        <asp:TemplateField HeaderText="Picture">
                             <ItemTemplate>
-                                <asp:Image runat="server" Style="width: 75px; height: 75px" ImageUrl='<%#Image(Eval("Picture").ToString())%>'></asp:Image>                               
+                                <asp:Image runat="server" Style="width: 75px; height: 75px" ImageUrl='<%#Image(Eval("Picture").ToString())%>'></asp:Image>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Action">
