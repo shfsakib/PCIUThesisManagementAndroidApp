@@ -68,7 +68,7 @@ FROM            Notice ORDER BY NoticeId DESC");
             gridNotice.PageIndex = e.NewPageIndex;
             Load();
         }
-
+        
         protected void lnkRemove_OnClick(object sender, EventArgs e)
         {
             LinkButton linkButton = (LinkButton)sender;

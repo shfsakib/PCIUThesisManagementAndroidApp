@@ -178,6 +178,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="/app/teachers-info.aspx">
+                                <i class="fa fa-user-tie"></i><span>&nbsp;&nbsp;Teachers List</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="/app/send-progress.aspx">
                                 <i class="fa fa-paper-plane"></i><span>&nbsp;&nbsp;Send Progress</span>
                             </a>
@@ -185,6 +190,16 @@
                         <li>
                             <a href="/app/notice.aspx">
                                 <i class="fa fa-chalkboard"></i><span>&nbsp;&nbsp;Notice</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/upload-final-report.aspx">
+                                <i class="fa fa-file-upload"></i><span>&nbsp;&nbsp;Upload Report</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/final-reports.aspx">
+                                <i class="fa fa-file"></i><span>&nbsp;&nbsp;Final Reports</span>
                             </a>
                         </li>
                     </ul>
@@ -211,6 +226,11 @@
                         <li>
                             <a href="/app/notice.aspx">
                                 <i class="fa fa-chalkboard"></i><span>&nbsp;&nbsp;Notice</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/final-reports.aspx">
+                                <i class="fa fa-file"></i><span>&nbsp;&nbsp;Final Reports</span>
                             </a>
                         </li>
                     </ul>
@@ -273,6 +293,11 @@
                         <li>
                             <a href="/app/notice-info.aspx">
                                 <i class="fa fa-chalkboard"></i><span>&nbsp;&nbsp;Notice</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/app/final-reports.aspx">
+                                <i class="fa fa-file"></i><span>&nbsp;&nbsp;Final Reports</span>
                             </a>
                         </li>
                     </ul>

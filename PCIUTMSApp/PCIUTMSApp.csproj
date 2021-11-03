@@ -101,6 +101,7 @@
     <Content Include="app\assigned-student-list.aspx" />
     <Content Include="app\coordinator-list.aspx" />
     <Content Include="app\examiner-profile.aspx" />
+    <Content Include="app\final-reports.aspx" />
     <Content Include="app\home.aspx" />
     <Content Include="app\notice-info.aspx" />
     <Content Include="app\notice.aspx" />
@@ -111,8 +112,10 @@
     <Content Include="app\student-progress-report.aspx" />
     <Content Include="app\supervisor-profile.aspx" />
     <Content Include="app\teacher-list.aspx" />
+    <Content Include="app\teachers-info.aspx" />
     <Content Include="app\update-assign.aspx" />
     <Content Include="app\update-examiner.aspx" />
+    <Content Include="app\upload-final-report.aspx" />
     <Content Include="Link\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
     <Content Include="Link\bower_components\bootstrap-colorpicker\dist\js\bootstrap-colorpicker.min.js" />
     <Content Include="Link\bower_components\bootstrap-datepicker\dist\css\bootstrap-datepicker.min.css" />
@@ -396,6 +399,13 @@
     <Compile Include="app\examiner-profile.aspx.designer.cs">
       <DependentUpon>examiner-profile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="app\final-reports.aspx.cs">
+      <DependentUpon>final-reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\final-reports.aspx.designer.cs">
+      <DependentUpon>final-reports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="app\notice-info.aspx.cs">
       <DependentUpon>notice-info.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -459,6 +469,13 @@
     <Compile Include="app\teacher-list.aspx.designer.cs">
       <DependentUpon>teacher-list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="app\teachers-info.aspx.cs">
+      <DependentUpon>teachers-info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\teachers-info.aspx.designer.cs">
+      <DependentUpon>teachers-info.aspx</DependentUpon>
+    </Compile>
     <Compile Include="app\update-assign.aspx.cs">
       <DependentUpon>update-assign.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -472,6 +489,13 @@
     </Compile>
     <Compile Include="app\update-examiner.aspx.designer.cs">
       <DependentUpon>update-examiner.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app\upload-final-report.aspx.cs">
+      <DependentUpon>upload-final-report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app\upload-final-report.aspx.designer.cs">
+      <DependentUpon>upload-final-report.aspx</DependentUpon>
     </Compile>
     <Compile Include="root.Master.cs">
       <DependentUpon>root.Master</DependentUpon>
